@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ease-swoop: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { 
+  box-sizing: border-box; 
+  outline: none;
+}
+
+html { 
+  scroll-behavior: smooth; 
+  background-color: #050505;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-plus-jakarta-sans), -apple-system, sans-serif;
+  background: #050505;
+  color: #fafafa;
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), -apple-system, sans-serif;
+}
+
+/* Custom Selection style */
+::selection { 
+  background: rgba(168, 85, 247, 0.3); 
+  color: #ffffff; 
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+/* Premium smooth scrollbar */
+::-webkit-scrollbar { 
+  width: 8px; 
+}
+::-webkit-scrollbar-track { 
+  background: #050505; 
+}
+::-webkit-scrollbar-thumb { 
+  background: #18181b; 
+  border-radius: 4px;
+  border: 2px solid #050505;
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: #3f3f46; 
+}
+
+/* Floating animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+
+/* Lora font branding utility */
+.font-lora {
+  font-family: var(--font-lora), Georgia, serif;
+}
+
+@keyframes color-cycle {
+  0%, 100% { color: #f3e8ff; text-shadow: 0 0 10px rgba(216, 180, 254, 0.8); } /* purple-100 / white-violet */
+  25% { color: #c084fc; text-shadow: 0 0 14px rgba(192, 132, 252, 0.8); }     /* purple-400 */
+  50% { color: #a855f7; text-shadow: 0 0 16px rgba(168, 85, 247, 0.9); }     /* purple-500 */
+  75% { color: #7c3aed; text-shadow: 0 0 12px rgba(124, 58, 237, 0.7); }     /* violet-600 */
+}
+
+.animate-dot-glow {
+  animation: color-cycle 6s linear infinite;
+  display: inline-block;
+}
