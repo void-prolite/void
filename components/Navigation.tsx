@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 interface NavigationProps {
   transparent?: boolean;
@@ -23,10 +24,10 @@ export default function Navigation({ transparent = true }: NavigationProps) {
   });
 
   const navItems = [
-    { label: "OUR PROJECTS", href: "#projects" },
-    { label: "SERVICES", href: "#services" },
-    { label: "ABOUT", href: "#about" },
-    { label: "CONTACT", href: "#contact" }
+    { label: "OUR PROJECTS", href: "/#projects" },
+    { label: "SERVICES", href: "/#services" },
+    { label: "ABOUT", href: "/about" },
+    { label: "CONTACT", href: "/contact" }
   ];
 
   return (
@@ -37,22 +38,29 @@ export default function Navigation({ transparent = true }: NavigationProps) {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
           isScrolled 
-            ? "py-4 bg-black/60 backdrop-blur-xl border-b border-white/5 shadow-[0_4px_30px_rgba(168,85,247,0.03)]" 
+            ? "py-4 bg-black/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(168,85,247,0.03)]" 
             : "py-6 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center w-full">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-3xl font-bold tracking-normal cursor-pointer font-lora"
-          >
-            Void<span className="animate-dot-glow">.</span>
-          </motion.div>
+          <Link href="/" onClick={(e) => {
+            if (typeof window !== "undefined" && window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="text-3xl font-bold tracking-normal cursor-pointer font-lora"
+            >
+              Void<span className="animate-dot-glow">.</span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Nav Items */}
           <div className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 className="relative px-5 py-2.5 text-zinc-400 hover:text-white transition-colors duration-300 rounded-full"
@@ -67,7 +75,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                   />
                 )}
                 <span className="relative z-10">{item.label}</span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -121,13 +129,13 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                 >
-                  <a
+                  <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className="text-3xl font-black tracking-widest text-zinc-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 block transition-all"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
               

@@ -1,18 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --ease-swoop: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-space-grotesk: 'Space Grotesk', -apple-system, sans-serif;
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-lora: 'Lora', Georgia, serif;
 }
 
-* { 
-  box-sizing: border-box; 
+* {
+  box-sizing: border-box;
   outline: none;
 }
 
-html { 
-  scroll-behavior: smooth; 
+html {
+  scroll-behavior: smooth;
   background-color: #050505;
 }
 
@@ -26,43 +31,65 @@ body {
   letter-spacing: -0.01em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-space-grotesk), -apple-system, sans-serif;
 }
 
 /* Custom Selection style */
-::selection { 
-  background: rgba(168, 85, 247, 0.3); 
-  color: #ffffff; 
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: #ffffff;
   text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
 }
 
 /* Premium smooth scrollbar */
-::-webkit-scrollbar { 
-  width: 8px; 
+::-webkit-scrollbar {
+  width: 8px;
 }
-::-webkit-scrollbar-track { 
-  background: #050505; 
+
+::-webkit-scrollbar-track {
+  background: #050505;
 }
-::-webkit-scrollbar-thumb { 
-  background: #18181b; 
+
+::-webkit-scrollbar-thumb {
+  background: #18181b;
   border-radius: 4px;
   border: 2px solid #050505;
   transition: all 0.3s ease;
 }
-::-webkit-scrollbar-thumb:hover { 
-  background: #3f3f46; 
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
 }
 
 /* Floating animation utilities */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.15); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
 }
 
 .animate-float {
@@ -79,10 +106,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes color-cycle {
-  0%, 100% { color: #f3e8ff; text-shadow: 0 0 10px rgba(216, 180, 254, 0.8); } /* purple-100 / white-violet */
-  25% { color: #c084fc; text-shadow: 0 0 14px rgba(192, 132, 252, 0.8); }     /* purple-400 */
-  50% { color: #a855f7; text-shadow: 0 0 16px rgba(168, 85, 247, 0.9); }     /* purple-500 */
-  75% { color: #7c3aed; text-shadow: 0 0 12px rgba(124, 58, 237, 0.7); }     /* violet-600 */
+  0%,
+  100% {
+    color: #f3e8ff;
+    text-shadow: 0 0 10px rgba(216, 180, 254, 0.8);
+  }
+
+  25% {
+    color: #c084fc;
+    text-shadow: 0 0 14px rgba(192, 132, 252, 0.8);
+  }
+
+  50% {
+    color: #a855f7;
+    text-shadow: 0 0 16px rgba(168, 85, 247, 0.9);
+  }
+
+  75% {
+    color: #7c3aed;
+    text-shadow: 0 0 12px rgba(124, 58, 237, 0.7);
+  }
 }
 
 .animate-dot-glow {

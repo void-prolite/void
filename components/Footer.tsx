@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 interface FooterProps {}
 
@@ -14,9 +15,9 @@ export default function Footer({}: FooterProps) {
   ];
 
   const legalLinks = [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" }
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" }
   ];
 
   return (
@@ -28,9 +29,19 @@ export default function Footer({}: FooterProps) {
         
         {/* Brand Details */}
         <div className="flex flex-col items-start gap-4 max-w-sm">
-          <div className="text-4xl font-bold tracking-normal font-lora">
-            Void<span className="animate-dot-glow">.</span>
-          </div>
+          <Link href="/" onClick={(e) => {
+            if (typeof window !== "undefined" && window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              className="text-4xl font-bold tracking-normal cursor-pointer font-lora text-white hover:text-purple-400 transition-colors"
+            >
+              Void<span className="animate-dot-glow">.</span>
+            </motion.div>
+          </Link>
           <p className="text-zinc-400 text-sm font-medium leading-relaxed">
             Crafting bespoke digital experiences at the absolute intersection of design and technology.
           </p>
