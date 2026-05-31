@@ -103,16 +103,16 @@ export default function ComparisonSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             whileHover={{ y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-white/5 bg-zinc-950/20 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-cyan-500/30 hover:shadow-[0_0_50px_rgba(6,182,212,0.06)] transition-all duration-500 flex flex-col justify-between"
+            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-white/5 bg-zinc-950/20 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-red-500/30 hover:shadow-[0_0_50px_rgba(239,68,68,0.06)] transition-all duration-500 flex flex-col justify-between"
           >
             {/* Soft internal gradient background glow on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.08),transparent_60%)] pointer-events-none" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.08),transparent_60%)] pointer-events-none" />
 
             <div>
               {/* Header inside card */}
               <div className="flex justify-between items-start mb-10 pb-8 border-b border-white/5">
                 <div>
-                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 group-hover:text-red-500 transition-colors duration-300">
                     VOID LITE
                   </h3>
                   <p className="text-zinc-500 text-xs font-bold tracking-wider uppercase">
@@ -143,7 +143,7 @@ export default function ComparisonSection() {
                             transition: { type: "spring", stiffness: 150, damping: 12, delay: i * 0.08 }
                           })
                         }}
-                        className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.6)]"
+                        className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"
                       />
                     </div>
                     <span>{feature}</span>
@@ -153,7 +153,7 @@ export default function ComparisonSection() {
             </div>
 
             {/* Accent Footer line inside card */}
-            <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-cyan-400/80 transition-colors duration-300">
+            <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-red-500/80 transition-colors duration-300">
               <span>Essential Experience</span>
             </div>
           </motion.div>
@@ -175,7 +175,7 @@ export default function ComparisonSection() {
               {/* Header inside card */}
               <div className="flex justify-between items-start mb-10 pb-8 border-b border-white/5">
                 <div>
-                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all duration-300">
+                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 group-hover:text-purple-500 transition-colors duration-300">
                     VOID PRO
                   </h3>
                   <p className="text-zinc-500 text-xs font-bold tracking-wider uppercase">

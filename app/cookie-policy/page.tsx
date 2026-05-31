@@ -117,7 +117,7 @@ export default function CookiePolicyPage() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="bg-zinc-950/30 backdrop-blur-2xl border border-white/5 rounded-[2rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] space-y-10 leading-relaxed text-sm md:text-base font-medium">
+            <div className="bg-zinc-950/30 border border-white/5 rounded-[2rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.6)] space-y-10 leading-relaxed text-sm md:text-base font-medium">
               <div>
                 <h2 className="text-xl font-bold text-white mb-4">1. What Cookies Are</h2>
                 <p className="text-zinc-400">
