@@ -28,10 +28,51 @@ export default function ContactPage() {
   });
   const [projectType, setProjectType] = useState<string>("Pro Platform");
   const [budgetTier, setBudgetTier] = useState<string>("under ₹10k");
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [isIndiaCurrency, setIsIndiaCurrency] = useState<boolean>(true);
+
+  const inrTiers = ["under ₹10k", "₹10k to ₹50k", "₹50k to ₹1 lakh", "₹1 lakh to ₹4 lakhs", "over ₹4 lakhs"];
+  const usdTiers = ["Under 1k $", "1k to 10k $", "10k to 50k $", "50k+$"];
 
   useEffect(() => {
     setHasMounted(true);
+
+    // Fast synchronous detection via browser timezone metadata
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const isIndiaTimezone = timezone === "Asia/Kolkata" || timezone === "Asia/Calcutta";
+      if (!isIndiaTimezone) {
+        setIsIndiaCurrency(false);
+        setBudgetTier("Under 1k $");
+      }
+
+      // Query a reliable, CORS-friendly client-side geolocator (freeipapi.com)
+      fetch("https://freeipapi.com/api/json")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.countryCode) {
+            const isIN = data.countryCode === "IN";
+            setIsIndiaCurrency(isIN);
+            setBudgetTier(isIN ? "under ₹10k" : "Under 1k $");
+          }
+        })
+        .catch((err) => {
+          console.log("Primary Geo IP failed, trying backup:", err);
+          // Backup query using ipwho.is which also supports CORS & HTTPS
+          fetch("https://ipwho.is/")
+            .then((res) => res.json())
+            .then((data) => {
+              if (data && data.country_code) {
+                const isIN = data.country_code === "IN";
+                setIsIndiaCurrency(isIN);
+                setBudgetTier(isIN ? "under ₹10k" : "Under 1k $");
+              }
+            })
+            .catch((backupErr) => console.log("Backup Geo IP lookup bypassed:", backupErr));
+        });
+    } catch (e) {
+      console.log("Timezone identification bypassed:", e);
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
@@ -49,24 +90,51 @@ export default function ContactPage() {
   const pY = useTransform(mouseY, [-0.5, 0.5], [-30, 30]);
 
   const projectTypes = ["Lite Platform", "Pro Platform"];
-  const budgetTiers = ["under ₹10k", "₹10k to ₹50k", "₹50k to ₹1 lakh", "₹1 lakh to ₹4 lakhs", "over ₹4 lakhs"];
+  const budgetTiers = isIndiaCurrency ? inrTiers : usdTiers;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setFormStatus("submitting");
 
-    // Simulate highly premium secure transmission animation sequence
-    setTimeout(() => {
-      setFormStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1800);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "fa176d5a-64e5-4166-9746-41bc07a9ce4d",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          project_type: projectType,
+          budget_tier: budgetTier,
+          subject: `New Project Consultation Request from ${formData.name}`,
+          from_name: "Void Studio Agency"
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        console.error("Web3Forms submission failed:", data);
+        setFormStatus("error");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -280,6 +348,25 @@ export default function ContactPage() {
                       <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight">
                         Design Consultation Request
                       </h2>
+
+                      {formStatus === "error" && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="p-4 bg-red-500/10 border border-red-500/20 text-red-200 rounded-2xl flex items-start gap-3 text-sm relative z-20"
+                        >
+                          <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                          <div>
+                            <span className="font-bold block">Transmission Failed</span>
+                            <span className="text-zinc-400 text-xs leading-relaxed">
+                              Could not establish contact with our servers. Please verify your connection or try again. 
+                              You can also reach out directly to <a href="mailto:void.prolite@gmail.com" className="text-purple-400 hover:text-purple-300 font-bold transition-colors">void.prolite@gmail.com</a>.
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
 
                       {/* Text Input Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

@@ -12,24 +12,17 @@ interface HoverGifImageProps {
 }
 
 function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps) {
-  const [currentGifSrc, setCurrentGifSrc] = useState<string>("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (isHovered) {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      setCurrentGifSrc(gifImg);
-    } else {
-      // Keep the GIF src set during the 400ms CSS fade-out transition, then swap to placeholder to release CPU resources
-      timeoutRef.current = setTimeout(() => {
-        setCurrentGifSrc("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-      }, 400);
+    if (videoRef.current) {
+      if (isHovered) {
+        videoRef.current.play().catch((err) => console.log("Video play failed:", err));
+      } else {
+        videoRef.current.pause();
+      }
     }
-
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [isHovered, gifImg]);
+  }, [isHovered]);
 
   return (
     <div className="relative w-full h-full overflow-hidden">
@@ -37,7 +30,7 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
       <img
         src={staticImg}
         alt={alt}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none"
         style={{
           opacity: isHovered ? 0 : 1,
           transform: isHovered ? "scale(1.02)" : "scale(1)",
@@ -45,10 +38,14 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
         }}
       />
       
-      {/* GIF preview preloaded & absolutely positioned to crossfade instantly on hover */}
-      <img
-        src={currentGifSrc}
-        alt={`${alt} scroll preview`}
+      {/* WebM Video loop preview preloaded & absolutely positioned to crossfade instantly on hover */}
+      <video
+        ref={videoRef}
+        src={gifImg}
+        preload="auto"
+        loop
+        muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           opacity: isHovered ? 1 : 0,
@@ -63,15 +60,6 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
 export default function StartProjectPage() {
   const [hoveredCard, setHoveredCard] = useState<"lite" | "pro" | null>(null);
 
-  useEffect(() => {
-    // Preload heavy scroll GIFs on mount to ensure smooth, instant playback without layout flickering
-    const gifs = ["/images/void-lite.gif", "/images/void-pro.gif"];
-    gifs.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
-
   const tiers = [
     {
       id: "lite" as const,
@@ -80,8 +68,8 @@ export default function StartProjectPage() {
       desc: "A robust, clean, and highly functional static visual storefront. Designed for creative portfolios, clean landing pages, and business showcases that need reliable performance, sleek default typography, and essential responsive structures.",
       accent: "#ff4b3e",
       glowColor: "rgba(255, 75, 62, 0.2)",
-      staticImg: "/images/void-lite.png",
-      gifImg: "/images/void-lite.gif",
+      staticImg: "/images/void-lite.webp",
+      gifImg: "/images/void-lite.webm",
       url: "https://void-lite.vercel.app/",
       ctaText: "Establish Lite Platform",
       features: [
@@ -98,8 +86,8 @@ export default function StartProjectPage() {
       desc: "The pinnacle of digital craftsmanship. A premium, high-performance ecosystem equipped with breathtaking CSS shaders, fluid micro-interactions, advanced custom animations, complex state management, and immersive neon user interfaces.",
       accent: "#a855f7",
       glowColor: "rgba(168, 85, 247, 0.2)",
-      staticImg: "/images/void-pro.png",
-      gifImg: "/images/void-pro.gif",
+      staticImg: "/images/void-pro.webp",
+      gifImg: "/images/void-pro.webm",
       url: "https://void-pro-portfolio.vercel.app/",
       ctaText: "Establish Pro Platform",
       features: [

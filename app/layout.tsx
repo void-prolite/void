@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Void.",
   description: "We craft bold digital experiences that push boundaries.",
   icons: {
-    icon: "/images/Void favicon.png",
+    icon: "/images/Void favicon.svg",
   },
 };
 

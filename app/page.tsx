@@ -24,7 +24,7 @@ export default function Home() {
         client: "Void Essential Platform",
         size: "large",
         href: "https://void-lite.vercel.app/",
-        image: "/images/void-lite.png",
+        image: "/images/void-lite.webp",
         accentColor: "#ff4b3e",
         hoverBorderColor: "rgba(255, 75, 62, 0.3)"
       },
@@ -33,7 +33,7 @@ export default function Home() {
         client: "Void Premium Ecosystem",
         size: "large",
         href: "https://void-pro-portfolio.vercel.app/",
-        image: "/images/void-pro.png",
+        image: "/images/void-pro.webp",
         accentColor: "#a855f7",
         hoverBorderColor: "rgba(168, 85, 247, 0.3)"
       }
