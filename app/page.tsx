@@ -1,13 +1,12 @@
-
+import dynamic from "next/dynamic";
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
-import WorkSection from "../components/WorkSection";
-import ServicesSection from "../components/ServicesSection";
-import ComparisonSection from "../components/ComparisonSection";
-import CtaSection from "../components/CtaSection";
-import Footer from "../components/Footer";
-import Error404 from "../components/Error404";
 
+const WorkSection = dynamic(() => import("../components/WorkSection"));
+const ServicesSection = dynamic(() => import("../components/ServicesSection"));
+const ComparisonSection = dynamic(() => import("../components/ComparisonSection"));
+const CtaSection = dynamic(() => import("../components/CtaSection"));
+const Footer = dynamic(() => import("../components/Footer"));
 
 
 export default function Home() {
@@ -33,6 +32,7 @@ export default function Home() {
         title: "Void.Pro",
         client: "Void Premium Ecosystem",
         size: "large",
+        href: "https://void-pro-portfolio.vercel.app/",
         accentColor: "#a855f7"
       }
     ];

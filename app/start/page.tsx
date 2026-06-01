@@ -100,7 +100,7 @@ export default function StartProjectPage() {
       glowColor: "rgba(168, 85, 247, 0.2)",
       staticImg: "/images/void-pro.png",
       gifImg: "/images/void-pro.gif",
-      url: "#",
+      url: "https://void-pro-portfolio.vercel.app/",
       ctaText: "Establish Pro Platform",
       features: [
         "Advanced Custom Animations",
