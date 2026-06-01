@@ -33,7 +33,9 @@ export default function Home() {
         client: "Void Premium Ecosystem",
         size: "large",
         href: "https://void-pro-portfolio.vercel.app/",
-        accentColor: "#a855f7"
+        image: "/images/void-pro.png",
+        accentColor: "#a855f7",
+        hoverBorderColor: "rgba(168, 85, 247, 0.3)"
       }
     ];
 
