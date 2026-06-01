@@ -82,7 +82,7 @@ export default function StartProjectPage() {
       glowColor: "rgba(255, 75, 62, 0.2)",
       staticImg: "/images/void-lite.png",
       gifImg: "/images/void-lite.gif",
-      url: "https://voidlite.vercel.app/",
+      url: "https://void-lite.vercel.app/",
       ctaText: "Establish Lite Platform",
       features: [
         "Lightweight Static Architecture",

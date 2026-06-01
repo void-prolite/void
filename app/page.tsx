@@ -24,7 +24,7 @@ export default function Home() {
         title: "Void.Lite",
         client: "Void Essential Platform",
         size: "large",
-        href: "https://voidlite.vercel.app/",
+        href: "https://void-lite.vercel.app/",
         image: "/images/void-lite.png",
         accentColor: "#ff4b3e",
         hoverBorderColor: "rgba(255, 75, 62, 0.3)"
