@@ -10,7 +10,6 @@ export default function Footer({}: FooterProps) {
   const socialLinks = [
     { label: "Instagram", href: "#" },
     { label: "Twitter", href: "#" },
-    { label: "Dribbble", href: "#" },
     { label: "LinkedIn", href: "#" }
   ];
 

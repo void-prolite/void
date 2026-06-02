@@ -148,8 +148,6 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                 <a href="#" className="hover:text-purple-400 transition-colors">INSTAGRAM</a>
                 <span>•</span>
                 <a href="#" className="hover:text-purple-400 transition-colors">TWITTER</a>
-                <span>•</span>
-                <a href="#" className="hover:text-purple-400 transition-colors">DRIBBBLE</a>
               </motion.div>
             </div>
           </motion.div>

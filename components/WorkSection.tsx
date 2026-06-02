@@ -60,7 +60,9 @@ export default function WorkSection({ projects }: WorkSectionProps) {
                 <img
                   src={project.image || `https://picsum.photos/1200/800?random=${i + 22}`}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105 group-hover:opacity-90"
+                  className={`w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105 group-hover:opacity-90 ${
+                    project.title === "Void.Pro" ? "object-left" : ""
+                  }`}
                 />
                 
                 {/* Gradient overlay */}

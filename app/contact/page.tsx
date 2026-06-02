@@ -321,7 +321,7 @@ export default function ContactPage() {
                     ESTABLISH FREQUENCIES
                   </span>
                   <div className="flex gap-4">
-                    {["Instagram", "Twitter", "Dribbble", "LinkedIn"].map((network) => (
+                    {["Instagram", "Twitter", "LinkedIn"].map((network) => (
                       <a
                         key={network}
                         href="#"

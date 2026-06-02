@@ -30,7 +30,9 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
       <img
         src={staticImg}
         alt={alt}
-        className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none"
+        className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none ${
+          alt === "Void.Pro" ? "object-left" : ""
+        }`}
         style={{
           opacity: isHovered ? 0 : 1,
           transform: isHovered ? "scale(1.02)" : "scale(1)",
@@ -46,7 +48,9 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`absolute inset-0 w-full h-full object-cover ${
+          alt === "Void.Pro" ? "object-left" : ""
+        }`}
         style={{
           opacity: isHovered ? 1 : 0,
           transform: isHovered ? "scale(1.02)" : "scale(1)",
