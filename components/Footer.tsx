@@ -8,7 +8,7 @@ interface FooterProps {}
 
 export default function Footer({}: FooterProps) {
   const socialLinks = [
-    { label: "Instagram", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/void.prolite/", target: "_blank", rel: "noopener noreferrer" },
     { label: "Twitter", href: "#" },
     { label: "LinkedIn", href: "#" }
   ];
@@ -81,6 +81,8 @@ export default function Footer({}: FooterProps) {
                 <a 
                   key={link.label}
                   href={link.href}
+                  target={link.target}
+                  rel={link.rel}
                   className="hover:text-white transition-colors duration-300 relative group w-fit"
                 >
                   {link.label}

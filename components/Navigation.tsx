@@ -145,7 +145,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                 transition={{ delay: 0.5 }}
                 className="mt-8 pt-8 border-t border-white/5 flex justify-center gap-6 text-zinc-500 text-sm font-semibold tracking-wider"
               >
-                <a href="#" className="hover:text-purple-400 transition-colors">INSTAGRAM</a>
+                <a href="https://www.instagram.com/void.prolite/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">INSTAGRAM</a>
                 <span>•</span>
                 <a href="#" className="hover:text-purple-400 transition-colors">TWITTER</a>
               </motion.div>

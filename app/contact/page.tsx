@@ -321,13 +321,19 @@ export default function ContactPage() {
                     ESTABLISH FREQUENCIES
                   </span>
                   <div className="flex gap-4">
-                    {["Instagram", "Twitter", "LinkedIn"].map((network) => (
+                    {[
+                      { name: "Instagram", href: "https://www.instagram.com/void.prolite/", target: "_blank", rel: "noopener noreferrer" },
+                      { name: "Twitter", href: "#", target: undefined, rel: undefined },
+                      { name: "LinkedIn", href: "#", target: undefined, rel: undefined }
+                    ].map((network) => (
                       <a
-                        key={network}
-                        href="#"
+                        key={network.name}
+                        href={network.href}
+                        target={network.target}
+                        rel={network.rel}
                         className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-xs text-zinc-400 font-semibold hover:text-white hover:border-purple-500/20 hover:bg-purple-500/5 transition-all duration-300"
                       >
-                        {network.toUpperCase()}
+                        {network.name.toUpperCase()}
                       </a>
                     ))}
                   </div>
