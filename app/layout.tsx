@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://void-studio.vercel.app"),
   title: "Void.",
   description: "We craft bold, premium, and highly animated digital experiences that push boundaries.",
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Void.",
     description: "We craft bold, premium, and highly animated digital experiences that push boundaries.",
