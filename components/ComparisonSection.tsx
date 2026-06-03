@@ -10,25 +10,25 @@ export default function ComparisonSection() {
   const liteFeatures = [
     "Static Website",
     "Fast Delivery",
-    "Minimal Animations",
+    "Standard Animations",
     "Basic UI",
     "Streamlined Experience",
     "Simple Interactions",
     "Quick Deployment",
     "Clean Modern Design",
-    "Best For Startups"
+    "Best For Small Teams"
   ];
 
   const proFeatures = [
     "Dynamic Website",
-    "Premium Development",
+    "Custom Integration",
     "Advanced Animations",
-    "Cinematic UI/UX",
-    "Premium Experience",
+    "Advanced UI/UX",
+    "Full-featured Development",
     "Interactive Experiences",
     "Fully Custom Built",
-    "Luxury High-End Design",
-    "Best For Premium Brands"
+    "Custom Design",
+    "Best For Growing Businesses"
   ];
 
   // SVG drawing animation variants
@@ -71,48 +71,54 @@ export default function ComparisonSection() {
   };
 
   return (
-    <section id="comparison" className="py-40 md:py-48 px-6 bg-black relative overflow-hidden">
-      {/* Background glowing elements */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+    <section id="comparison" className="py-40 md:py-48 px-6 bg-transparent relative overflow-hidden">
+      {/* Divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-zinc-200" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <ScrollReveal ref={revealRef} direction="up">
           <div className="text-center mb-28">
-            <span className="text-purple-500 text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block animate-pulse">
+            <span className="text-zinc-500 text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
               Choose Your Experience
             </span>
-            <h2 className="text-4xl md:text-6xl font-black mt-2 tracking-tighter bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mt-2 tracking-[-0.02em] text-black mb-6 word-spacing-tight">
               Select a Path
             </h2>
-            <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base font-medium leading-relaxed">
+            <p className="text-zinc-650 max-w-xl mx-auto text-xs sm:text-sm font-medium leading-relaxed tracking-normal word-spacing-tight">
               Built for different needs. Crafted with the same meticulous attention to detail.
             </p>
           </div>
         </ScrollReveal>
 
         {/* 2-Column Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto">
-          
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto"
+        >
+
           {/* VOID LITE CARD */}
           <motion.div
             variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
             whileHover={{ y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-white/5 bg-zinc-950/20 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-red-500/30 hover:shadow-[0_0_50px_rgba(239,68,68,0.06)] transition-all duration-500 flex flex-col justify-between"
+            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-zinc-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)]"
           >
-            {/* Soft internal gradient background glow on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.08),transparent_60%)] pointer-events-none" />
 
             <div>
               {/* Header inside card */}
-              <div className="flex justify-between items-start mb-10 pb-8 border-b border-white/5">
+              <div className="flex justify-between items-start mb-10 pb-8 border-b border-zinc-200">
                 <div>
-                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 group-hover:text-red-500 transition-colors duration-300">
+                  <h3 className="text-3xl font-black tracking-tight text-black mb-2 transition-colors duration-300">
                     VOID LITE
                   </h3>
                   <p className="text-zinc-500 text-xs font-bold tracking-wider uppercase">
@@ -122,15 +128,15 @@ export default function ComparisonSection() {
               </div>
 
               {/* Feature comparison rows */}
-              <motion.ul 
+              <motion.ul
                 variants={listContainerVariants}
                 className="space-y-5"
               >
                 {liteFeatures.map((feature, idx) => (
-                  <motion.li 
+                  <motion.li
                     key={idx}
                     variants={listItemVariants}
-                    className="flex items-center gap-4 text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300 font-medium text-sm md:text-base"
+                    className="flex items-center gap-4 text-zinc-600 group-hover:text-zinc-900 transition-colors duration-300 font-medium text-sm md:text-base"
                   >
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                       <motion.div
@@ -143,7 +149,7 @@ export default function ComparisonSection() {
                             transition: { type: "spring", stiffness: 150, damping: 12, delay: i * 0.08 }
                           })
                         }}
-                        className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]"
+                        className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-zinc-800 transition-colors duration-300"
                       />
                     </div>
                     <span>{feature}</span>
@@ -153,7 +159,7 @@ export default function ComparisonSection() {
             </div>
 
             {/* Accent Footer line inside card */}
-            <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-red-500/80 transition-colors duration-300">
+            <div className="mt-12 pt-8 border-t border-zinc-200 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-black transition-colors duration-300">
               <span>Essential Experience</span>
             </div>
           </motion.div>
@@ -162,38 +168,33 @@ export default function ComparisonSection() {
           {/* VOID PRO CARD */}
           <motion.div
             variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
             whileHover={{ y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-white/5 bg-zinc-950/20 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-purple-500/30 hover:shadow-[0_0_50px_rgba(168,85,247,0.06)] transition-all duration-500 flex flex-col justify-between"
+            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-purple-300 hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.12)]"
           >
-            {/* Soft gold/purple internal gradient background glow on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem] bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.08),transparent_60%)] pointer-events-none" />
 
             <div>
               {/* Header inside card */}
-              <div className="flex justify-between items-start mb-10 pb-8 border-b border-white/5">
+              <div className="flex justify-between items-start mb-10 pb-8 border-b border-zinc-200">
                 <div>
-                  <h3 className="text-3xl font-black tracking-tight text-white mb-2 group-hover:text-purple-500 transition-colors duration-300">
+                  <h3 className="text-3xl font-black tracking-tight text-black mb-2 transition-colors duration-300">
                     VOID PRO
                   </h3>
                   <p className="text-zinc-500 text-xs font-bold tracking-wider uppercase">
-                    Cinematic, bespoke & high-fidelity
+                    Custom, advanced & interactive
                   </p>
                 </div>
               </div>
 
               {/* Feature comparison rows */}
-              <motion.ul 
+              <motion.ul
                 variants={listContainerVariants}
                 className="space-y-5"
               >
                 {proFeatures.map((feature, idx) => (
-                  <motion.li 
+                  <motion.li
                     key={idx}
                     variants={listItemVariants}
-                    className="flex items-center gap-4 text-zinc-400 group-hover:text-zinc-200 transition-colors duration-300 font-medium text-sm md:text-base"
+                    className="flex items-center gap-4 text-zinc-650 group-hover:text-zinc-900 transition-colors duration-300 font-medium text-sm md:text-base"
                   >
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
                       <motion.div
@@ -206,10 +207,10 @@ export default function ComparisonSection() {
                             transition: { type: "spring", stiffness: 150, damping: 12, delay: i * 0.08 }
                           })
                         }}
-                        className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                        className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-purple-500 transition-colors duration-300"
                       />
                     </div>
-                    <span className="bg-gradient-to-r from-zinc-100 to-zinc-300 bg-clip-text text-transparent group-hover:from-white group-hover:to-zinc-100 transition-all duration-300">
+                    <span className="text-zinc-600 group-hover:text-zinc-900 transition-all duration-300">
                       {feature}
                     </span>
                   </motion.li>
@@ -218,12 +219,12 @@ export default function ComparisonSection() {
             </div>
 
             {/* Accent Footer line inside card */}
-            <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-purple-400/80 transition-colors duration-300">
-              <span>Cinematic Experience</span>
+            <div className="mt-12 pt-8 border-t border-zinc-200 flex items-center justify-center text-xs font-bold tracking-widest text-zinc-500 group-hover:text-black transition-colors duration-300">
+              <span>Custom Experience</span>
             </div>
           </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

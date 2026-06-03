@@ -30,16 +30,15 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
       <img
         src={staticImg}
         alt={alt}
-        className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none ${
-          alt === "Void.Pro" ? "object-left" : ""
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none ${alt === "Void.Pro" ? "object-left" : ""
+          }`}
         style={{
           opacity: isHovered ? 0 : 1,
           transform: isHovered ? "scale(1.02)" : "scale(1)",
           transition: "opacity 0.4s ease-in-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       />
-      
+
       {/* WebM Video loop preview preloaded & absolutely positioned to crossfade instantly on hover */}
       <video
         ref={videoRef}
@@ -48,9 +47,8 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
         loop
         muted
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover ${
-          alt === "Void.Pro" ? "object-left" : ""
-        }`}
+        className={`absolute inset-0 w-full h-full object-cover ${alt === "Void.Pro" ? "object-left" : ""
+          }`}
         style={{
           opacity: isHovered ? 1 : 0,
           transform: isHovered ? "scale(1.02)" : "scale(1)",
@@ -68,10 +66,10 @@ export default function StartProjectPage() {
     {
       id: "lite" as const,
       title: "Void.Lite",
-      tagline: "Clean Static Showcase",
-      desc: "A robust, clean, and highly functional static visual storefront. Designed for creative portfolios, clean landing pages, and business showcases that need reliable performance, sleek default typography, and essential responsive structures.",
-      accent: "#ff4b3e",
-      glowColor: "rgba(255, 75, 62, 0.2)",
+      tagline: "Static Showcase Website",
+      desc: "A clean, static website. Designed for portfolios, landing pages, and marketing sites that need fast performance, structured grids, and clean responsive layouts.",
+      accent: "#ffffff",
+      glowColor: "rgba(255, 255, 255, 0.1)",
       staticImg: "/images/void-lite.webp",
       gifImg: "/images/void-lite.webm",
       url: "https://void-lite.vercel.app/",
@@ -86,10 +84,10 @@ export default function StartProjectPage() {
     {
       id: "pro" as const,
       title: "Void.Pro",
-      tagline: "Premium Animated Ecosystem",
-      desc: "The pinnacle of digital craftsmanship. A premium, high-performance ecosystem equipped with breathtaking CSS shaders, fluid micro-interactions, advanced custom animations, complex state management, and immersive neon user interfaces.",
-      accent: "#a855f7",
-      glowColor: "rgba(168, 85, 247, 0.2)",
+      tagline: "Custom Web Application",
+      desc: "A custom web application with interactive interfaces. Designed for businesses requiring advanced state management, interactive user experiences, dynamic data integrations, and functional dashboards.",
+      accent: "#ffffff",
+      glowColor: "rgba(255, 255, 255, 0.1)",
       staticImg: "/images/void-pro.webp",
       gifImg: "/images/void-pro.webm",
       url: "https://void-pro-portfolio.vercel.app/",
@@ -104,26 +102,12 @@ export default function StartProjectPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#050505] text-[#fafafa] relative overflow-hidden py-24 px-6">
+    <main className="min-h-screen bg-transparent text-zinc-800 relative overflow-hidden py-24 px-6">
       {/* Background ambient flows */}
       <div
         className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[150px] pointer-events-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
-          background: hoveredCard === "lite"
-            ? "rgba(255, 75, 62, 0.05)"
-            : hoveredCard === "pro"
-              ? "rgba(168, 85, 247, 0.05)"
-              : "rgba(168, 85, 247, 0.02)"
-        }}
-      />
-      <div
-        className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[150px] pointer-events-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-        style={{
-          background: hoveredCard === "lite"
-            ? "rgba(255, 75, 62, 0.03)"
-            : hoveredCard === "pro"
-              ? "rgba(168, 85, 247, 0.03)"
-              : "rgba(255, 255, 255, 0.01)"
+          background: "rgba(0, 0, 0, 0.01)"
         }}
       />
 
@@ -133,7 +117,7 @@ export default function StartProjectPage() {
           <Link href="/">
             <motion.div
               whileHover={{ x: -4 }}
-              className="inline-flex items-center gap-2 text-zinc-400 hover:text-white text-sm font-semibold tracking-wider cursor-pointer"
+              className="inline-flex items-center gap-2 text-zinc-500 hover:text-black text-sm font-semibold tracking-wider cursor-pointer"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -145,13 +129,13 @@ export default function StartProjectPage() {
 
         {/* Header Block */}
         <div className="text-center mb-24 max-w-3xl mx-auto">
-          <span className="text-xs font-bold tracking-[0.3em] text-purple-500 uppercase block mb-4">
+          <span className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase block mb-4">
             Project Initiation
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent mb-6">
-            Choose Your Platform
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-[-0.03em] text-ink mb-6">
+            Choose your <span className="font-serif italic font-light text-[#8B6F47]">platform</span>
           </h1>
-          <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed">
+          <p className="text-zinc-600 text-lg md:text-xl font-medium leading-relaxed">
             Select the digital architectural foundation for your product. Hover over each card to preview the system in action.
           </p>
         </div>
@@ -168,22 +152,20 @@ export default function StartProjectPage() {
                 onMouseLeave={() => setHoveredCard(null)}
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                className="relative flex flex-col h-full rounded-3xl border bg-zinc-950/20 shadow-[0_30px_70px_rgba(0,0,0,0.8)] overflow-hidden group transition-all duration-300"
+                className="relative flex flex-col h-full rounded-3xl border bg-white overflow-hidden group transition-all duration-500 hover:bg-[#faf8f5]"
                 style={{
-                  borderColor: isHovered ? `${tier.accent}40` : "rgba(255,255,255,0.05)"
+                  borderColor: isHovered
+                    ? (tier.id === "pro" ? "#c084fc" : "#71717a")
+                    : "rgba(0,0,0,0.08)",
+                  boxShadow: isHovered
+                    ? (tier.id === "pro" ? "0 20px 40px -15px rgba(168,85,247,0.12)" : "0 20px 40px -15px rgba(0,0,0,0.06)")
+                    : "none"
                 }}
               >
-                {/* Custom glowing background behind active card */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                  style={{
-                    background: `radial-gradient(circle at bottom left, ${tier.glowColor}, transparent 60%)`
-                  }}
-                />
 
 
                 {/* Media Showcase Block */}
-                <div className="relative w-full aspect-[16/10] bg-zinc-900 overflow-hidden border-b border-white/5">
+                <div className="relative w-full aspect-[16/10] bg-zinc-100 overflow-hidden border-b border-zinc-200">
                   <HoverGifImage
                     staticImg={tier.staticImg}
                     gifImg={tier.gifImg}
@@ -196,18 +178,17 @@ export default function StartProjectPage() {
                 <div className="p-8 flex flex-col flex-grow relative z-10">
                   <div className="mb-6">
                     <span
-                      className="text-xs font-bold tracking-[0.2em] uppercase mb-2 block"
-                      style={{ color: tier.accent }}
+                      className="text-xs font-bold tracking-[0.2em] uppercase mb-2 block text-zinc-500"
                     >
                       {tier.tagline}
                     </span>
-                    <h2 className="text-3xl font-black text-white transition-all duration-300 relative w-fit pb-1">
-                      <span className="group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-zinc-400 transition-all duration-300">
+                    <h2 className="text-3xl font-black text-black transition-all duration-300 relative w-fit pb-1">
+                      <span>
                         {tier.title}
                       </span>
                       {(tier.title === "Void.Lite" || tier.title === "Void.Pro") && (
                         <svg
-                          className={`absolute left-0 bottom-[-4px] w-full h-[7px] ${tier.title === "Void.Lite" ? "text-[#ff4b3e]" : "text-[#a855f7]"} opacity-90`}
+                          className="absolute left-0 bottom-[-4px] w-full h-[7px] text-black opacity-90"
                           viewBox="0 0 100 10"
                           preserveAspectRatio="none"
                         >
@@ -220,21 +201,20 @@ export default function StartProjectPage() {
                     </h2>
                   </div>
 
-                  <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-8">
+                  <p className="text-zinc-600 text-sm md:text-base leading-relaxed mb-8">
                     {tier.desc}
                   </p>
 
                   {/* Highlights Bullet Grid */}
-                  <div className="mt-auto mb-8 border-t border-white/5 pt-6">
-                    <h3 className="text-xs font-bold tracking-wider text-zinc-300 uppercase mb-4">
+                  <div className="mt-auto mb-8 border-t border-zinc-200 pt-6">
+                    <h3 className="text-xs font-bold tracking-wider text-zinc-550 uppercase mb-4">
                       Core Features Include
                     </h3>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {tier.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2 text-xs text-zinc-400 font-medium">
+                        <li key={index} className="flex items-center gap-2 text-xs text-zinc-600 font-medium">
                           <span
-                            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                            style={{ backgroundColor: tier.accent }}
+                            className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-black"
                           />
                           {feature}
                         </li>
@@ -249,12 +229,7 @@ export default function StartProjectPage() {
                     rel={tier.url !== "#" ? "noopener noreferrer" : undefined}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full text-center py-4 rounded-xl text-black font-extrabold text-sm tracking-wider uppercase cursor-pointer transition-shadow duration-300 block"
-                    style={{
-                      backgroundColor: isHovered ? tier.accent : "#fafafa",
-                      color: isHovered ? "#ffffff" : "#000000",
-                      boxShadow: isHovered ? `0 10px 30px ${tier.glowColor}` : "none"
-                    }}
+                    className="w-full text-center py-4 rounded-xl text-white font-extrabold text-sm tracking-wider uppercase cursor-pointer transition-colors duration-300 block bg-black hover:bg-zinc-800 text-white"
                   >
                     {tier.ctaText}
                   </motion.a>

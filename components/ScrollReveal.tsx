@@ -13,7 +13,7 @@ interface ScrollRevealProps {
 }
 
 const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
-  ({ children, direction = "up", delay = 0, blur = false, scale = true, duration = 0.95 }, ref) => {
+  ({ children, direction = "up", delay = 0, blur = true, scale = true, duration = 0.95 }, ref) => {
     const directionOffset = {
       up: { y: 40, x: 0 },
       down: { y: -40, x: 0 },

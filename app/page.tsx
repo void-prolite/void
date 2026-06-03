@@ -21,7 +21,7 @@ export default function Home() {
   }[] = [
       {
         title: "Void.Lite",
-        client: "Void Essential Platform",
+        client: "Static Showcase Website",
         size: "large",
         href: "https://void-lite.vercel.app/",
         image: "/images/void-lite.webp",
@@ -30,7 +30,7 @@ export default function Home() {
       },
       {
         title: "Void.Pro",
-        client: "Void Premium Ecosystem",
+        client: "Custom Web Application",
         size: "large",
         href: "https://void-pro-portfolio.vercel.app/",
         image: "/images/void-pro.webp",
@@ -40,10 +40,10 @@ export default function Home() {
     ];
 
   const services = [
-    { num: "01", title: "Brand Identity", desc: "Creating memorable brand experiences that resonate." },
-    { num: "02", title: "Web Design", desc: "Pixel-perfect websites with seamless interactions." },
-    { num: "03", title: "Development", desc: "Cutting-edge web applications and platforms." },
-    { num: "04", title: "Motion Design", desc: "Captivating animations that bring ideas to life." }
+    { num: "01", title: "Brand Identity", desc: "We design logos, visual assets, and style guidelines." },
+    { num: "02", title: "Web Design", desc: "We design clean, responsive page layouts." },
+    { num: "03", title: "Development", desc: "We write clean, secure frontend and backend code." },
+    { num: "04", title: "User Experience", desc: "We optimize interfaces for simple and clear user flows." }
   ];
 
   return (

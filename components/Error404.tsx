@@ -35,20 +35,14 @@ export default function Error404() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]">
-      {/* Dynamic Background Glows */}
-      <motion.div 
-        className="absolute w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] rounded-full blur-[120px] opacity-20 bg-purple-600 pointer-events-none"
-        style={{ x: backgroundX, y: backgroundY }}
-      />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-900/30 rounded-full blur-[100px] animate-pulse-slow pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-900/20 rounded-full blur-[100px] animate-float pointer-events-none" />
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Monochromatic background */}
 
       {/* Grid Pattern Overlay */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+        className="absolute inset-0 pointer-events-none opacity-[0.05]" 
         style={{ 
-          backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(to right, #000000 1px, transparent 1px), linear-gradient(to bottom, #000000 1px, transparent 1px)',
           backgroundSize: '40px 40px' 
         }} 
       />
@@ -65,10 +59,7 @@ export default function Error404() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <h1 className="text-[12rem] md:text-[20rem] font-bold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-600 select-none">
-              404
-            </h1>
-            <h1 className="absolute inset-0 text-[12rem] md:text-[20rem] font-bold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-purple-400 to-fuchsia-600 blur-[24px] opacity-40 select-none mix-blend-screen">
+            <h1 className="text-[12rem] md:text-[20rem] font-bold leading-none tracking-tighter text-black select-none">
               404
             </h1>
           </motion.div>
@@ -79,21 +70,21 @@ export default function Error404() {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mt-[-2rem] md:mt-[-4rem]"
           >
-            <h2 className="font-lora text-3xl md:text-5xl italic text-white font-light tracking-wide mb-6">
-              Lost in the Void
+            <h2 className="text-3xl md:text-5xl text-black font-light tracking-wide mb-6">
+              Page Not Found
             </h2>
-            <p className="text-zinc-400 text-sm md:text-base font-medium tracking-[0.2em] uppercase max-w-md mx-auto mb-12">
-              The signal you are looking for has been disconnected from the grid.
+            <p className="text-zinc-500 text-sm md:text-base font-medium tracking-[0.1em] uppercase max-w-md mx-auto mb-12">
+              The page you are looking for does not exist or has been moved.
             </p>
 
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: "#ffffff", color: "#000000" }}
+              whileHover={{ scale: 1.05, backgroundColor: "#000000", color: "#ffffff" }}
               whileTap={{ scale: 0.95 }}
               onClick={handleHomeClick}
-              className="group relative px-8 py-4 bg-transparent text-white font-semibold tracking-[0.15em] uppercase text-xs overflow-hidden border border-zinc-700 hover:border-white transition-colors duration-500 rounded-none"
+              className="group relative px-8 py-4 bg-transparent text-black font-semibold tracking-[0.15em] uppercase text-xs overflow-hidden border border-zinc-300 hover:border-black transition-colors duration-500 rounded-none"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-purple-500 group-hover:bg-black transition-colors duration-300"></span>
+                <span className="w-2 h-2 rounded-full bg-black group-hover:bg-white transition-colors duration-300"></span>
                 Return to Surface
               </span>
             </motion.button>

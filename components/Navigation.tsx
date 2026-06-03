@@ -3,6 +3,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Magnetic from "./Magnetic";
 
 interface NavigationProps {
   transparent?: boolean;
@@ -12,7 +13,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -36,11 +37,10 @@ export default function Navigation({ transparent = true }: NavigationProps) {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${
-          isScrolled 
-            ? "py-4 bg-black/60 backdrop-blur-xl shadow-[0_4px_30px_rgba(168,85,247,0.03)]" 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${isScrolled
+            ? "py-4 bg-[#f5f2eb]/90 backdrop-blur-md border-b border-zinc-200"
             : "py-6 bg-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center w-full">
           <Link href="/" onClick={(e) => {
@@ -49,12 +49,14 @@ export default function Navigation({ transparent = true }: NavigationProps) {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold tracking-normal cursor-pointer font-lora"
-            >
-              Void<span className="animate-dot-glow">.</span>
-            </motion.div>
+            <Magnetic>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="text-3xl font-black tracking-normal cursor-pointer text-ink font-sans"
+              >
+                Void<span className="text-[#8B6F47] animate-pulse">.</span>
+              </motion.div>
+            </Magnetic>
           </Link>
 
           {/* Desktop Nav Items */}
@@ -63,14 +65,14 @@ export default function Navigation({ transparent = true }: NavigationProps) {
               <Link
                 key={item.label}
                 href={item.href}
-                className="relative px-5 py-2.5 text-zinc-400 hover:text-white transition-colors duration-300 rounded-full"
+                className="relative px-5 py-2.5 text-zinc-650 hover:text-black transition-colors duration-300 rounded-full"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 {hoveredIndex === index && (
                   <motion.span
                     layoutId="nav-hover-pill"
-                    className="absolute inset-0 bg-white/5 rounded-full z-0 border border-white/5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                    className="absolute inset-0 bg-black/5 rounded-full z-0 border border-black/5 shadow-[inset_0_1px_1px_rgba(0,0,0,0.02)]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -83,24 +85,24 @@ export default function Navigation({ transparent = true }: NavigationProps) {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-purple-400 focus:outline-none transition-colors p-2 z-50 relative"
+              className="text-black hover:text-zinc-600 focus:outline-none transition-colors p-2 z-50 relative"
               aria-label="Toggle menu"
             >
               <div className="w-6 h-5 flex flex-col justify-between items-end">
-                <motion.span 
+                <motion.span
                   animate={isOpen ? { rotate: 45, y: 8, width: "24px" } : { rotate: 0, y: 0, width: "24px" }}
                   transition={{ duration: 0.3 }}
-                  className="h-[2px] bg-white rounded-full block"
+                  className="h-[2px] bg-black rounded-full block"
                 />
-                <motion.span 
+                <motion.span
                   animate={isOpen ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1, width: "16px" }}
                   transition={{ duration: 0.2 }}
-                  className="h-[2px] bg-white rounded-full block"
+                  className="h-[2px] bg-black rounded-full block"
                 />
-                <motion.span 
+                <motion.span
                   animate={isOpen ? { rotate: -45, y: -10, width: "24px" } : { rotate: 0, y: 0, width: "20px" }}
                   transition={{ duration: 0.3 }}
-                  className="h-[2px] bg-white rounded-full block"
+                  className="h-[2px] bg-black rounded-full block"
                 />
               </div>
             </button>
@@ -116,11 +118,9 @@ export default function Navigation({ transparent = true }: NavigationProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 flex flex-col justify-center items-center px-8 md:hidden"
+            className="fixed inset-0 bg-white z-40 flex flex-col justify-center items-center px-8 md:hidden"
           >
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-500/10 rounded-full blur-[100px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-pink-500/10 rounded-full blur-[100px]" />
-            
+
             <div className="flex flex-col gap-8 text-center relative z-10 w-full max-w-sm">
               {navItems.map((item, index) => (
                 <motion.div
@@ -132,22 +132,22 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-3xl font-black tracking-widest text-zinc-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-400 block transition-all"
+                    className="text-3xl font-black tracking-widest text-zinc-600 hover:text-black block transition-all"
                   >
                     {item.label}
                   </Link>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="mt-8 pt-8 border-t border-white/5 flex justify-center gap-6 text-zinc-500 text-sm font-semibold tracking-wider"
+                className="mt-8 pt-8 border-t border-zinc-200 flex justify-center gap-6 text-zinc-400 text-sm font-semibold tracking-wider"
               >
-                <a href="https://www.instagram.com/void.prolite/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">INSTAGRAM</a>
+                <a href="#" className="hover:text-black transition-colors">INSTAGRAM</a>
                 <span>•</span>
-                <a href="#" className="hover:text-purple-400 transition-colors">TWITTER</a>
+                <a href="#" className="hover:text-black transition-colors">TWITTER</a>
               </motion.div>
             </div>
           </motion.div>
