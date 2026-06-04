@@ -8,6 +8,7 @@ interface Service {
   num: string;
   title: string;
   desc: string;
+  capabilities?: string[];
 }
 
 interface ServicesSectionProps {
@@ -38,10 +39,10 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   };
 
   return (
-    <section id="services" className="py-40 md:py-48 px-6 bg-transparent relative overflow-hidden">
+    <section id="services" className="py-20 md:py-24 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal ref={revealRef} direction="up">
-          <div className="text-center mb-24">
+          <div className="text-center mb-12">
             <span className="text-zinc-500 text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 block">
               What We Do
             </span>
@@ -78,15 +79,38 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 className={`group p-10 border border-zinc-200 rounded-[2rem] bg-white transition-all duration-500 flex flex-col items-start cursor-pointer ${currentColors.border} ${currentColors.shadow}`}
               >
-                <span className={`font-mono text-zinc-400 group-hover:text-[#8B6F47] text-4xl font-light transition-colors duration-300 block mb-6 transform group-hover:scale-105 origin-left tracking-widest`}>
-                  {service.num}
-                </span>
+                <div className="flex justify-between items-center w-full mb-6">
+                  <span className={`font-mono text-zinc-400 group-hover:text-[#8B6F47] text-4xl font-light transition-colors duration-300 block transform group-hover:scale-105 origin-left tracking-widest`}>
+                    {service.num}
+                  </span>
+                  {/* Pivoting Arrow Icon */}
+                  <svg
+                    className="w-5 h-5 text-zinc-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </div>
                 <h3 className="text-xl md:text-2xl font-black text-[#0f0c08] mb-4 transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-zinc-650 text-sm leading-relaxed font-medium group-hover:text-zinc-800 transition-colors duration-300">
                   {service.desc}
                 </p>
+
+                {service.capabilities && (
+                  <div className="mt-6 pt-6 border-t border-zinc-100 w-full flex flex-col gap-2">
+                    {service.capabilities.map((cap) => (
+                      <div key={cap} className="flex items-center gap-2 text-xs font-semibold text-zinc-500 group-hover:text-zinc-800 transition-colors duration-300">
+                        <span className="w-1 h-1 rounded-full bg-[#8B6F47] opacity-60" />
+                        <span>{cap}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </motion.div>
             );
           })}

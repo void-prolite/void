@@ -52,7 +52,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
             <Magnetic>
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="text-3xl font-black tracking-normal cursor-pointer text-ink font-sans"
+                className="text-3xl font-semibold tracking-tight cursor-pointer text-ink font-serif"
               >
                 Void<span className="text-[#8B6F47] animate-pulse">.</span>
               </motion.div>
@@ -145,7 +145,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                 transition={{ delay: 0.5 }}
                 className="mt-8 pt-8 border-t border-zinc-200 flex justify-center gap-6 text-zinc-400 text-sm font-semibold tracking-wider"
               >
-                <a href="#" className="hover:text-black transition-colors">INSTAGRAM</a>
+                <a href="https://www.instagram.com/void.prolite/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">INSTAGRAM</a>
                 <span>•</span>
                 <a href="#" className="hover:text-black transition-colors">TWITTER</a>
               </motion.div>

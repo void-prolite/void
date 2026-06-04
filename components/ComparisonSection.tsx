@@ -71,14 +71,14 @@ export default function ComparisonSection() {
   };
 
   return (
-    <section id="comparison" className="py-40 md:py-48 px-6 bg-transparent relative overflow-hidden">
+    <section id="comparison" className="py-20 md:py-24 px-6 bg-transparent relative overflow-hidden">
       {/* Divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-zinc-200" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <ScrollReveal ref={revealRef} direction="up">
-          <div className="text-center mb-28">
+          <div className="text-center mb-14">
             <span className="text-zinc-500 text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
               Choose Your Experience
             </span>
@@ -139,18 +139,15 @@ export default function ComparisonSection() {
                     className="flex items-center gap-4 text-zinc-600 group-hover:text-zinc-900 transition-colors duration-300 font-medium text-sm md:text-base"
                   >
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <motion.div
-                        custom={idx}
-                        variants={{
-                          hidden: { scale: 0, opacity: 0 },
-                          visible: (i: number) => ({
-                            scale: 1,
-                            opacity: 1,
-                            transition: { type: "spring", stiffness: 150, damping: 12, delay: i * 0.08 }
-                          })
-                        }}
-                        className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-zinc-800 transition-colors duration-300"
-                      />
+                      <svg
+                        className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-800 transition-colors duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
                     </div>
                     <span>{feature}</span>
                   </motion.li>
@@ -165,13 +162,11 @@ export default function ComparisonSection() {
           </motion.div>
 
 
-          {/* VOID PRO CARD */}
           <motion.div
             variants={cardVariants}
             whileHover={{ y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-purple-300 hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.12)]"
+            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-[#8B6F47]/50 hover:shadow-[0_20px_40px_-15px_rgba(139,111,71,0.12)]"
           >
-
             <div>
               {/* Header inside card */}
               <div className="flex justify-between items-start mb-10 pb-8 border-b border-zinc-200">
@@ -197,18 +192,15 @@ export default function ComparisonSection() {
                     className="flex items-center gap-4 text-zinc-650 group-hover:text-zinc-900 transition-colors duration-300 font-medium text-sm md:text-base"
                   >
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <motion.div
-                        custom={idx}
-                        variants={{
-                          hidden: { scale: 0, opacity: 0 },
-                          visible: (i: number) => ({
-                            scale: 1,
-                            opacity: 1,
-                            transition: { type: "spring", stiffness: 150, damping: 12, delay: i * 0.08 }
-                          })
-                        }}
-                        className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-purple-500 transition-colors duration-300"
-                      />
+                      <svg
+                        className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#8B6F47] transition-colors duration-300"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={3}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
                     </div>
                     <span className="text-zinc-600 group-hover:text-zinc-900 transition-all duration-300">
                       {feature}

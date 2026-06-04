@@ -136,7 +136,7 @@ export default function AboutPage() {
               }}
               className="block text-ink"
             >
-              We <span className="font-serif italic font-light text-[#8B6F47]">design</span> & build
+              Thoughtful <span className="font-serif italic font-light text-[#8B6F47]">design</span> &
             </motion.span>
             <motion.span
               initial="hidden"
@@ -152,7 +152,7 @@ export default function AboutPage() {
               }}
               className="block text-transparent bg-clip-text bg-gradient-to-r from-ink via-accent-sepia to-ink relative"
             >
-              clean <span className="font-serif italic font-light">websites</span>
+              refined <span className="font-serif italic font-light">engineering</span>
             </motion.span>
           </h1>
 
@@ -168,7 +168,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story & Interactive Methodology Section */}
-      <section className="py-24 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
+      <section className="py-16 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
@@ -246,7 +246,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24 md:py-36 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
+      <section className="py-16 md:py-24 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal direction="up">
             <div className="text-center mb-20">
@@ -288,7 +288,7 @@ export default function AboutPage() {
       </section>
 
       {/* Departments Section */}
-      <section className="py-24 md:py-36 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
+      <section className="py-16 md:py-24 px-6 relative z-10 border-t border-zinc-200 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal direction="up">
             <div className="text-center mb-20">

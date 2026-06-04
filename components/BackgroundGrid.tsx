@@ -1,19 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function BackgroundGrid() {
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const [isActive, setIsActive] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
 
   useEffect(() => {
     setIsMounted(true);
@@ -55,12 +47,6 @@ export default function BackgroundGrid() {
 
   return (
     <>
-      {/* Scroll Progress Line at top of viewport */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-[#8B6F47] origin-[0%] z-[100] pointer-events-none"
-        style={{ scaleX }}
-      />
-
       {/* Dynamic Cursor Spotlight Overlay (mix-blend-mode: soft-light for page illumination) */}
       <div
         className="fixed inset-0 pointer-events-none z-[50] transition-opacity duration-700 ease-out"

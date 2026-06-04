@@ -16,7 +16,7 @@ export default function Hero({ }: HeroProps) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-6 bg-transparent"
+      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-36 pb-20 px-6 bg-transparent"
     >
       {/* Background Parallax */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none select-none z-0 bg-transparent" />
@@ -24,7 +24,7 @@ export default function Hero({ }: HeroProps) {
       {/* Hero Content */}
       <motion.div
         style={{ y: contentY }}
-        className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center"
+        className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center translate-y-8"
       >
         <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.15] tracking-[-0.03em] mb-8 select-none text-ink">
           <motion.span

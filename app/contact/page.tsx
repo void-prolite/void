@@ -124,7 +124,7 @@ export default function ContactPage() {
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none select-none z-0 bg-transparent" />
 
       {/* Contact Hero Block */}
-      <section className="relative pt-36 pb-12 px-6 z-10">
+      <section className="relative pt-28 pb-8 px-6 z-10">
         <motion.div style={{ y: contentY }} className="max-w-5xl mx-auto text-center flex flex-col items-center">
           <motion.span
             initial={{ opacity: 0 }}
@@ -156,7 +156,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Card Section */}
-      <section className="py-12 pb-32 px-6 relative z-10">
+      <section className="py-8 pb-20 px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal direction="up" delay={0.1}>
             <div className="bg-zinc-50 border border-zinc-200 rounded-[2.5rem] p-8 md:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-12 gap-12 relative overflow-hidden group">
@@ -235,15 +235,25 @@ export default function ContactPage() {
                     OUR SOCIALS
                   </span>
                   <div className="flex gap-4">
-                    {["Instagram", "Twitter", "LinkedIn"].map((network) => (
-                      <a
-                        key={network}
-                        href="#"
-                        className="px-4 py-2 rounded-xl bg-white border border-zinc-200 text-xs text-zinc-500 font-semibold hover:text-black hover:border-black transition-all duration-300"
-                      >
-                        {network.toUpperCase()}
-                      </a>
-                    ))}
+                    {["Instagram", "Twitter", "LinkedIn"].map((network) => {
+                      const socialUrls: Record<string, string> = {
+                        Instagram: "https://www.instagram.com/void.prolite/",
+                        Twitter: "#",
+                        LinkedIn: "#"
+                      };
+                      const href = socialUrls[network] || "#";
+                      return (
+                        <a
+                          key={network}
+                          href={href}
+                          target={href.startsWith("http") ? "_blank" : undefined}
+                          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="px-4 py-2 rounded-xl bg-white border border-zinc-200 text-xs text-zinc-500 font-semibold hover:text-black hover:border-black transition-all duration-300"
+                        >
+                          {network.toUpperCase()}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

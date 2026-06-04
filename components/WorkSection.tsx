@@ -13,6 +13,7 @@ interface Project {
   image?: string;
   accentColor?: string;
   hoverBorderColor?: string;
+  tags?: string[];
 }
 
 interface WorkSectionProps {
@@ -51,6 +52,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         boxShadow: isHovered ? `0 20px 40px -15px ${hoverBorderColor}` : "none",
       }}
     >
+      {/* Project tags at top left */}
+      {project.tags && (
+        <div className="absolute top-6 left-6 z-20 flex flex-wrap gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1 text-[9px] font-extrabold tracking-wider uppercase text-white bg-black/30 backdrop-blur-md border border-white/10 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Image scaling with slight fade on hover */}
       <img
         src={project.image || `https://picsum.photos/1200/800?random=${index + 22}`}
@@ -133,13 +148,13 @@ export default function WorkSection({ projects }: WorkSectionProps) {
   };
 
   return (
-    <section id="projects" className="py-40 md:py-48 px-6 bg-transparent relative">
+    <section id="projects" className="py-20 md:py-24 px-6 bg-transparent relative">
       {/* Divider */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-zinc-200" />
 
       <div className="max-w-7xl mx-auto">
         <ScrollReveal ref={revealRef} direction="up">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
               <span className="text-zinc-500 text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 block">
                 Selected Work

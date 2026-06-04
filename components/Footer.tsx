@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
 
 interface FooterProps { }
 
 export default function Footer({ }: FooterProps) {
+
   const socialLinks = [
-    { label: "Instagram", href: "#" },
+    { label: "Instagram", href: "https://www.instagram.com/void.prolite/" },
     { label: "Twitter", href: "#" },
     { label: "LinkedIn", href: "#" }
   ];
@@ -34,7 +34,7 @@ export default function Footer({ }: FooterProps) {
           }}>
             <motion.div
               whileHover={{ scale: 1.03 }}
-              className="text-4xl font-bold tracking-normal cursor-pointer text-black transition-colors"
+              className="text-4xl font-semibold tracking-tight cursor-pointer text-black transition-colors font-serif"
             >
               Void<span className="animate-dot-glow">.</span>
             </motion.div>
@@ -79,6 +79,8 @@ export default function Footer({ }: FooterProps) {
                 <a
                   key={link.label}
                   href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="hover:text-black transition-colors duration-300 relative group w-fit"
                 >
                   {link.label}
