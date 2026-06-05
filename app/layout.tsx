@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BackgroundGrid from "../components/BackgroundGrid";
+import Navigation from "../components/Navigation";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://void-studio.vercel.app"),
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="text-zinc-900 antialiased min-h-screen overflow-x-hidden">
         <div className="noise-overlay" />
         <BackgroundGrid />
+        <Navigation />
         {children}
       </body>
     </html>

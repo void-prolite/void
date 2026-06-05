@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 
 const WorkSection = dynamic(() => import("../components/WorkSection"));
@@ -51,7 +50,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <Navigation />
       <Hero />
       <WorkSection projects={projects} />
       <ServicesSection services={services} />

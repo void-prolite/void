@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import ScrollReveal from "../../components/ScrollReveal";
 
@@ -104,7 +103,6 @@ export default function AboutPage() {
 
   return (
     <main ref={containerRef} className="min-h-screen bg-transparent overflow-hidden relative">
-      <Navigation transparent={true} />
 
       {/* Background Parallax */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none select-none z-0 bg-transparent" />
@@ -202,39 +200,52 @@ export default function AboutPage() {
                     {(Object.keys(methodologies) as Array<keyof typeof methodologies>).map((key) => {
                       const isActive = activeMethodology === key;
                       return (
-                        <button
+                        <motion.button
                           key={key}
                           onClick={() => setActiveMethodology(key)}
-                          className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 relative ${isActive ? "text-white" : "text-zinc-500 hover:text-black"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                          className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-colors duration-300 relative ${isActive ? "text-white" : "text-zinc-500 hover:text-black"
                             }`}
                         >
                           {isActive && (
                             <motion.span
                               layoutId="methodology-pill"
                               className="absolute inset-0 bg-black rounded-full z-0"
-                              transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                              transition={{ type: "spring", stiffness: 380, damping: 18 }}
                             />
                           )}
                           <span className="relative z-10">{key}</span>
-                        </button>
+                        </motion.button>
                       );
                     })}
                   </div>
 
                   {/* Methodology Detail Block */}
-                  <div className="my-8 md:my-10 z-10 flex-grow flex flex-col justify-center">
-                    <span className="text-xs font-extrabold tracking-widest text-zinc-500 uppercase block mb-3">
-                      METHODOLOGY
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
-                      {methodologies[activeMethodology].title}
-                    </h3>
-                    <p className="text-black text-sm font-semibold tracking-wide leading-relaxed mb-4">
-                      {methodologies[activeMethodology].tagline}
-                    </p>
-                    <p className="text-zinc-600 text-xs md:text-sm font-medium leading-relaxed">
-                      {methodologies[activeMethodology].desc}
-                    </p>
+                  <div className="my-8 md:my-10 z-10 flex-grow flex flex-col justify-center min-h-[220px]">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeMethodology}
+                        initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <span className="text-xs font-extrabold tracking-widest text-zinc-500 uppercase block mb-3">
+                          METHODOLOGY
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-black text-black mb-4">
+                          {methodologies[activeMethodology].title}
+                        </h3>
+                        <p className="text-black text-sm font-semibold tracking-wide leading-relaxed mb-4">
+                          {methodologies[activeMethodology].tagline}
+                        </p>
+                        <p className="text-zinc-600 text-xs md:text-sm font-medium leading-relaxed">
+                          {methodologies[activeMethodology].desc}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
 
                 </div>

@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import ScrollReveal from "../../components/ScrollReveal";
 
@@ -15,7 +14,6 @@ export default function PrivacyPage() {
 
   return (
     <main ref={containerRef} className="min-h-screen bg-transparent overflow-hidden relative text-zinc-700">
-      <Navigation transparent={true} />
 
       {/* Background Parallax */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none select-none z-0 bg-transparent" />

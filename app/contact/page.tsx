@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import ScrollReveal from "../../components/ScrollReveal";
 
@@ -118,7 +117,6 @@ export default function ContactPage() {
 
   return (
     <main ref={containerRef} className="min-h-screen bg-transparent overflow-hidden relative">
-      <Navigation transparent={true} />
 
       {/* Background Parallax */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 pointer-events-none select-none z-0 bg-transparent" />

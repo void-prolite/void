@@ -3,6 +3,7 @@
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Magnetic from "./Magnetic";
 
 interface NavigationProps {
@@ -10,9 +11,12 @@ interface NavigationProps {
 }
 
 export default function Navigation({ transparent = true }: NavigationProps) {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+
+  if (pathname === "/start") return null;
 
   const { scrollY } = useScroll();
 
@@ -38,8 +42,8 @@ export default function Navigation({ transparent = true }: NavigationProps) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${isScrolled
-            ? "py-4 bg-[#f5f2eb]/90 backdrop-blur-md border-b border-zinc-200"
-            : "py-6 bg-transparent"
+            ? "py-4 bg-[#f5f2eb]/80 backdrop-blur-md border-b border-zinc-200"
+            : "py-6 bg-[#f5f2eb]/30 backdrop-blur-sm"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center w-full">
@@ -62,22 +66,28 @@ export default function Navigation({ transparent = true }: NavigationProps) {
           {/* Desktop Nav Items */}
           <div className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest">
             {navItems.map((item, index) => (
-              <Link
+              <motion.div
                 key={item.label}
-                href={item.href}
-                className="relative px-5 py-2.5 text-zinc-650 hover:text-black transition-colors duration-300 rounded-full"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                {hoveredIndex === index && (
-                  <motion.span
-                    layoutId="nav-hover-pill"
-                    className="absolute inset-0 bg-black/5 rounded-full z-0 border border-black/5 shadow-[inset_0_1px_1px_rgba(0,0,0,0.02)]"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{item.label}</span>
-              </Link>
+                <Link
+                  href={item.href}
+                  className="relative px-5 py-2.5 text-zinc-650 hover:text-black transition-colors duration-300 rounded-full block"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  {hoveredIndex === index && (
+                    <motion.span
+                      layoutId="nav-hover-pill"
+                      className="absolute inset-0 bg-black/5 rounded-full z-0 border border-black/5 shadow-[inset_0_1px_1px_rgba(0,0,0,0.02)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
