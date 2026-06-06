@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Magnetic from "./Magnetic";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface NavigationProps {
   transparent?: boolean;
@@ -15,6 +16,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   if (pathname === "/start") return null;
 
@@ -42,8 +44,12 @@ export default function Navigation({ transparent = true }: NavigationProps) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full ${isScrolled
-            ? "py-4 bg-[#f5f2eb]/80 backdrop-blur-md border-b border-zinc-200"
-            : "py-6 bg-[#f5f2eb]/30 backdrop-blur-sm"
+            ? isMobile 
+              ? "py-4 bg-[#f5f2eb] border-b border-zinc-200" 
+              : "py-4 bg-[#f5f2eb]/80 backdrop-blur-md border-b border-zinc-200"
+            : isMobile 
+              ? "py-6 bg-[#f5f2eb]/90" 
+              : "py-6 bg-[#f5f2eb]/30 backdrop-blur-sm"
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center w-full">

@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function BackgroundGrid() {
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
   const [isActive, setIsActive] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setIsMounted(true);
+    if (isMobile) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });

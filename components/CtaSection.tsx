@@ -15,7 +15,7 @@ export default function CtaSection({ }: CtaProps) {
   return (
     <section id="contact" className="py-20 md:py-24 px-6 relative overflow-hidden bg-transparent border-t border-zinc-200">
       {/* Decorative background radial halo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#8B6F47]/5 via-amber-500/5 to-transparent blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#8B6F47]/5 via-amber-500/5 to-transparent blur-3xl pointer-events-none z-0 hidden md:block" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <ScrollReveal ref={revealRef} direction="up">

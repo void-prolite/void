@@ -62,7 +62,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 text-[9px] font-extrabold tracking-wider uppercase text-white bg-black/30 backdrop-blur-md border border-white/10 rounded-full"
+              className={`px-3 py-1 text-[9px] font-extrabold tracking-wider uppercase text-white border border-white/10 rounded-full ${
+                isMobile ? "bg-black/70" : "bg-black/30 backdrop-blur-md"
+              }`}
             >
               {tag}
             </span>

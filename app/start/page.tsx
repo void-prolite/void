@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import useIsMobile from "../../hooks/useIsMobile";
 
 interface HoverGifImageProps {
   staticImg: string;
@@ -61,6 +62,7 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
 
 export default function StartProjectPage() {
   const [hoveredCard, setHoveredCard] = useState<"lite" | "pro" | null>(null);
+  const isMobile = useIsMobile();
 
   const tiers = [
     {
@@ -105,7 +107,7 @@ export default function StartProjectPage() {
     <main className="min-h-screen bg-transparent text-zinc-800 relative overflow-hidden py-24 px-6">
       {/* Background ambient flows */}
       <div
-        className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[150px] pointer-events-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[150px] pointer-events-none transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hidden md:block"
         style={{
           background: "rgba(0, 0, 0, 0.01)"
         }}
@@ -150,7 +152,7 @@ export default function StartProjectPage() {
                 key={tier.id}
                 onMouseEnter={() => setHoveredCard(tier.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                whileHover={{ y: -8 }}
+                whileHover={isMobile ? {} : { y: -8 }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 className="relative flex flex-col h-full rounded-3xl border bg-white overflow-hidden group transition-all duration-500 hover:bg-[#faf8f5]"
                 style={{
@@ -227,8 +229,8 @@ export default function StartProjectPage() {
                     href={tier.url === "#" ? undefined : tier.url}
                     target={tier.url !== "#" ? "_blank" : undefined}
                     rel={tier.url !== "#" ? "noopener noreferrer" : undefined}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    whileHover={isMobile ? {} : { scale: 1.02 }}
+                    whileTap={isMobile ? {} : { scale: 0.98 }}
                     className="w-full text-center py-4 rounded-xl text-white font-extrabold text-sm tracking-wider uppercase cursor-pointer transition-colors duration-300 block bg-black hover:bg-zinc-800 text-white"
                   >
                     {tier.ctaText}
