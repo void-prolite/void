@@ -34,7 +34,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
     visible: {
       y: 0,
       opacity: 1,
-      filter: "blur(0px)",
+      filter: isMobile ? "none" : "blur(0px)",
       scale: 1,
       transition: isMobile 
         ? { duration: 0.4 }

@@ -65,7 +65,7 @@ export default function Hero({ }: HeroProps) {
 
         <motion.p
           initial={{ opacity: 0, y: isMobile ? 0 : 20, filter: isMobile ? "none" : "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          animate={{ opacity: 1, y: 0, filter: isMobile ? "none" : "blur(0px)" }}
           transition={{ delay: isMobile ? 0.25 : 0.5, duration: isMobile ? 0.6 : 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm md:text-base text-zinc-650 max-w-2xl mx-auto mb-12 font-medium leading-relaxed tracking-normal word-spacing-tight px-4"
         >

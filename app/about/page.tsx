@@ -4,10 +4,12 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useRef, useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import ScrollReveal from "../../components/ScrollReveal";
+import useIsMobile from "../../hooks/useIsMobile";
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
+  const isMobile = useIsMobile();
 
   // Scroll parallax effects
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -150]);
@@ -227,10 +229,10 @@ export default function AboutPage() {
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={activeMethodology}
-                        initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0, y: isMobile ? 0 : 10, filter: isMobile ? "none" : "blur(4px)" }}
+                        animate={{ opacity: 1, y: 0, filter: isMobile ? "none" : "blur(0px)" }}
+                        exit={{ opacity: 0, y: isMobile ? 0 : -10, filter: isMobile ? "none" : "blur(4px)" }}
+                        transition={{ duration: isMobile ? 0.25 : 0.35, ease: [0.16, 1, 0.3, 1] }}
                       >
                         <span className="text-xs font-extrabold tracking-widest text-zinc-500 uppercase block mb-3">
                           METHODOLOGY
