@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { useRef } from "react";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function ComparisonSection() {
   const revealRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const liteFeatures = [
     "Static Website",
@@ -45,11 +47,13 @@ export default function ComparisonSection() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: isMobile ? 0 : 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20, duration: 0.8 }
+      transition: isMobile
+        ? { duration: 0.4 }
+        : { type: "spring", stiffness: 100, damping: 20, duration: 0.8 }
     }
   };
 
@@ -57,16 +61,18 @@ export default function ComparisonSection() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.08 }
+      transition: { staggerChildren: isMobile ? 0.04 : 0.08 }
     }
   };
 
   const listItemVariants = {
-    hidden: { opacity: 0, x: -10 },
+    hidden: { opacity: 0, x: isMobile ? 0 : -10 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
+      transition: isMobile
+        ? { duration: 0.3 }
+        : { type: "spring", stiffness: 100, damping: 15 }
     }
   };
 
@@ -110,7 +116,7 @@ export default function ComparisonSection() {
           {/* VOID LITE CARD */}
           <motion.div
             variants={cardVariants}
-            whileHover={{ y: -8 }}
+            whileHover={isMobile ? {} : { y: -8 }}
             className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-zinc-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)]"
           >
 
@@ -164,7 +170,7 @@ export default function ComparisonSection() {
 
           <motion.div
             variants={cardVariants}
-            whileHover={{ y: -8 }}
+            whileHover={isMobile ? {} : { y: -8 }}
             className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-[#8B6F47]/50 hover:shadow-[0_20px_40px_-15px_rgba(139,111,71,0.12)]"
           >
             <div>

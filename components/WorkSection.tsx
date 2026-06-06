@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface Project {
   title: string;
@@ -22,6 +23,7 @@ interface WorkSectionProps {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
   const hasLink = !!project.href;
   const isExternal = project.href?.startsWith("http");
 
@@ -29,22 +31,24 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   const hoverBorderColor = project.hoverBorderColor || "rgba(24, 24, 27, 0.1)";
 
   const childVariants = {
-    hidden: { y: 50, opacity: 0, filter: "blur(6px)", scale: 0.98 },
+    hidden: { y: isMobile ? 0 : 50, opacity: 0, filter: isMobile ? "none" : "blur(6px)", scale: isMobile ? 1 : 0.98 },
     visible: {
       y: 0,
       opacity: 1,
       filter: "blur(0px)",
       scale: 1,
-      transition: { type: "spring", stiffness: 90, damping: 15 }
+      transition: isMobile 
+        ? { duration: 0.4 } 
+        : { type: "spring", stiffness: 90, damping: 15 }
     }
   };
 
   const cardContent = (
     <motion.div
       variants={childVariants}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ y: -8 }}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
+      whileHover={isMobile ? {} : { y: -8 }}
       transition={{ type: "spring", stiffness: 150, damping: 20 }}
       className="relative group overflow-hidden rounded-3xl border aspect-[16/11] cursor-pointer transition-all duration-500 bg-white"
       style={{
@@ -78,7 +82,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f0c08] via-[#0f0c08]/30 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-500" />
 
       {/* Content details */}
-      <div className="absolute bottom-0 left-0 right-0 p-8 z-10 flex flex-col justify-end translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+      <div className={`absolute bottom-0 left-0 right-0 p-8 z-10 flex flex-col justify-end transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isMobile ? "translate-y-0" : "translate-y-3 group-hover:translate-y-0"
+      }`}>
         <p className="text-zinc-350 group-hover:text-zinc-150 text-xs font-bold tracking-[0.25em] uppercase mb-2 transition-colors duration-300">
           {project.client}
         </p>
@@ -103,7 +109,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
         {/* Subtle reveal explore link */}
         <div
-          className="mt-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 text-xs font-bold tracking-widest transition-all duration-500 transform translate-y-2 group-hover:translate-y-0"
+          className={`mt-4 flex items-center gap-1.5 text-xs font-bold tracking-widest transition-all duration-500 transform ${
+            isMobile ? "opacity-100 translate-y-0" : "opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0"
+          }`}
           style={{ color: accentColor }}
         >
           EXPLORE PROJECT

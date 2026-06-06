@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { useRef } from "react";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface Service {
   num: string;
@@ -17,6 +18,7 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
   const revealRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const containerVariants = {
     hidden: {},
@@ -28,13 +30,15 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   };
 
   const childVariants = {
-    hidden: { y: 40, opacity: 0, filter: "blur(5px)", scale: 0.98 },
+    hidden: { y: isMobile ? 0 : 40, opacity: 0, filter: isMobile ? "none" : "blur(5px)", scale: isMobile ? 1 : 0.98 },
     visible: {
       y: 0,
       opacity: 1,
       filter: "blur(0px)",
       scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 16 }
+      transition: isMobile 
+        ? { duration: 0.4 }
+        : { type: "spring", stiffness: 100, damping: 16 }
     }
   };
 
@@ -72,7 +76,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               <motion.div
                 key={i}
                 variants={childVariants}
-                whileHover={{
+                whileHover={isMobile ? {} : {
                   y: -10,
                   backgroundColor: "#faf8f5"
                 }}

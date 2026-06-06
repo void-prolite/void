@@ -2,13 +2,15 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Magnetic({ children }: { children: React.ReactElement }) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
+    if (isMobile || !ref.current) return;
     const { clientX, clientY } = e;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
     const centerX = left + width / 2;
@@ -32,8 +34,8 @@ export default function Magnetic({ children }: { children: React.ReactElement })
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      animate={isMobile ? { x: 0, y: 0 } : { x: position.x, y: position.y }}
+      transition={isMobile ? { duration: 0.1 } : { type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className="inline-block"
     >
       {children}

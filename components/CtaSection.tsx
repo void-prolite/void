@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { useRef } from "react";
 import Link from "next/link";
+import useIsMobile from "../hooks/useIsMobile";
 
 interface CtaProps { }
 
 export default function CtaSection({ }: CtaProps) {
   const revealRef = useRef(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="contact" className="py-20 md:py-24 px-6 relative overflow-hidden bg-transparent border-t border-zinc-200">
@@ -26,22 +28,18 @@ export default function CtaSection({ }: CtaProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/start">
               <motion.button
-                whileHover={{
-                  scale: 1.02,
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="px-10 py-4.5 bg-black text-white border border-black hover:bg-zinc-800 font-bold text-base rounded-full transition-colors duration-300 w-48 sm:w-auto"
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
+                className="px-12 py-5 bg-black text-white border border-black hover:bg-zinc-800 font-bold text-lg rounded-full transition-colors duration-300 w-64 sm:w-auto sm:px-10 sm:py-4.5 sm:text-base"
               >
                 Start a Project
               </motion.button>
             </Link>
             <Link href="/about">
               <motion.button
-                whileHover={{
-                  scale: 1.02,
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="px-10 py-4.5 bg-transparent text-black border border-zinc-350 hover:bg-black hover:text-white font-bold text-base rounded-full transition-all duration-300 w-48 sm:w-auto"
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
+                className="px-12 py-5 bg-transparent text-black border border-zinc-350 hover:bg-black hover:text-white font-bold text-lg rounded-full transition-all duration-300 w-64 sm:w-auto sm:px-10 sm:py-4.5 sm:text-base"
               >
                 Our Philosophy
               </motion.button>
