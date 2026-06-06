@@ -101,7 +101,7 @@ export default function ComparisonSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: isMobile ? "0px" : "-100px" }}
           variants={{
             hidden: {},
             visible: {

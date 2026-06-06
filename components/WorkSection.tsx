@@ -147,6 +147,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export default function WorkSection({ projects }: WorkSectionProps) {
   const revealRef = useRef(null);
+  const isMobile = useIsMobile();
 
   const containerVariants = {
     hidden: {},
@@ -179,7 +180,7 @@ export default function WorkSection({ projects }: WorkSectionProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: isMobile ? "0px" : "-100px" }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-10"
         >
