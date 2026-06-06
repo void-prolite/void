@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Void.",
     description: "We design and build clean, high-performance websites and digital interfaces.",
-    url: "https://void-studio.vercel.app",
+    url: "https://void-prolite.online",
     siteName: "Void.",
     images: [
       {
