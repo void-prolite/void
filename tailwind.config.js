@@ -20,6 +20,10 @@ module.exports = {
           sepia: '#8B6F47',
           violet: '#a855f7',
           coral: '#ff4b3e',
+        },
+        zinc: {
+          350: '#b4b2a9',
+          650: '#52525b',
         }
       },
       fontFamily: {

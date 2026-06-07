@@ -41,7 +41,11 @@ const ScrollReveal = forwardRef<HTMLDivElement, ScrollRevealProps>(
           ...(blur && !isMobile ? { filter: "blur(0px)" } : {}),
           scale: 1
         }}
-        viewport={{ once: true, margin: isMobile ? "0px" : "-50px" }}
+        viewport={{
+          once: true,
+          ...(isMobile ? {} : { margin: "-50px" })
+        }}
+        style={{ willChange: "opacity, transform" }}
         transition={{ duration: isMobile ? 0.4 : 0.7, delay: isMobile ? delay * 0.5 : delay, ease: [0.25, 0.1, 0.25, 1] }}
         onAnimationComplete={() => {
           if (blur && !isMobile && ref && typeof ref !== 'function' && ref.current) {

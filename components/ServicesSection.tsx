@@ -43,7 +43,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
   };
 
   return (
-    <section id="services" className="py-20 md:py-24 px-6 bg-transparent relative overflow-hidden">
+    <section id="services" className="py-14 md:py-24 px-5 md:px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal ref={revealRef} direction="up">
           <div className="text-center mb-12">
@@ -59,9 +59,12 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: isMobile ? "0px" : "-100px" }}
+          viewport={{
+            once: true,
+            ...(isMobile ? {} : { margin: "-100px" })
+          }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8"
         >
           {services.map((service, i) => {
             const hoverColors = [
@@ -81,7 +84,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                   backgroundColor: "#faf8f5"
                 }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
-                className={`group p-10 border border-zinc-200 rounded-[2rem] bg-white transition-all duration-500 flex flex-col items-start cursor-pointer ${currentColors.border} ${currentColors.shadow}`}
+                className={`group p-6 md:p-10 border border-zinc-200 rounded-[2rem] bg-white transition-all duration-500 flex flex-col items-start cursor-pointer ${currentColors.border} ${currentColors.shadow}`}
               >
                 <div className="flex justify-between items-center w-full mb-6">
                   <span className={`font-mono text-zinc-400 group-hover:text-[#8B6F47] text-4xl font-light transition-colors duration-300 block transform group-hover:scale-105 origin-left tracking-widest`}>
@@ -89,6 +92,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                   </span>
                   {/* Pivoting Arrow Icon */}
                   <svg
+                    aria-hidden="true"
                     className="w-5 h-5 text-zinc-300 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -101,7 +105,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                 <h3 className="text-xl md:text-2xl font-black text-[#0f0c08] mb-4 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-zinc-650 text-sm leading-relaxed font-medium group-hover:text-zinc-800 transition-colors duration-300">
+                <p className="text-zinc-600 text-sm leading-relaxed font-medium group-hover:text-zinc-800 transition-colors duration-300">
                   {service.desc}
                 </p>
 

@@ -25,12 +25,15 @@ export default function CtaSection({ }: CtaProps) {
         </ScrollReveal>
 
         <ScrollReveal direction="up" delay={0.2}>
+          <p className="text-sm text-zinc-500 font-medium mb-6">
+            No commitment. Free discovery call.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/start">
               <motion.button
                 whileHover={isMobile ? {} : { scale: 1.02 }}
                 whileTap={isMobile ? {} : { scale: 0.98 }}
-                className="px-12 py-5 bg-black text-white border border-black hover:bg-zinc-800 font-bold text-lg rounded-full transition-colors duration-300 w-64 sm:w-auto sm:px-10 sm:py-4.5 sm:text-base"
+                className="px-14 py-5 bg-black text-white border border-black hover:bg-zinc-800 font-bold text-lg rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
               >
                 Start a Project
               </motion.button>
@@ -39,7 +42,7 @@ export default function CtaSection({ }: CtaProps) {
               <motion.button
                 whileHover={isMobile ? {} : { scale: 1.02 }}
                 whileTap={isMobile ? {} : { scale: 0.98 }}
-                className="px-12 py-5 bg-transparent text-black border border-zinc-350 hover:bg-black hover:text-white font-bold text-lg rounded-full transition-all duration-300 w-64 sm:w-auto sm:px-10 sm:py-4.5 sm:text-base"
+                className="px-10 py-4 bg-transparent text-zinc-600 border border-zinc-300 hover:bg-black hover:text-white font-semibold text-base rounded-full transition-all duration-300 w-full sm:w-auto"
               >
                 Our Philosophy
               </motion.button>

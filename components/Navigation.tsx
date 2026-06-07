@@ -74,9 +74,9 @@ export default function Navigation({ transparent = true }: NavigationProps) {
             {navItems.map((item, index) => (
               <motion.div
                 key={item.label}
-                whileHover={{ y: -2, scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
               >
                 <Link
                   href={item.href}
@@ -88,7 +88,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                     <motion.span
                       layoutId="nav-hover-pill"
                       className="absolute inset-0 bg-black/5 rounded-full z-0 border border-black/5 shadow-[inset_0_1px_1px_rgba(0,0,0,0.02)]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>
@@ -137,7 +137,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
             className="fixed inset-0 bg-white z-40 flex flex-col justify-center items-center px-8 md:hidden"
           >
 
-            <div className="flex flex-col gap-8 text-center relative z-10 w-full max-w-sm">
+            <div className="flex flex-col gap-2 text-center relative z-10 w-full max-w-sm">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -148,7 +148,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-3xl font-black tracking-widest text-zinc-600 hover:text-black block transition-all"
+                    className="text-3xl font-black tracking-widest text-zinc-600 hover:text-black block transition-all py-3 w-full text-center"
                   >
                     {item.label}
                   </Link>
@@ -162,8 +162,6 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                 className="mt-8 pt-8 border-t border-zinc-200 flex justify-center gap-6 text-zinc-400 text-sm font-semibold tracking-wider"
               >
                 <a href="https://www.instagram.com/void.prolite/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">INSTAGRAM</a>
-                <span>•</span>
-                <a href="#" className="hover:text-black transition-colors">TWITTER</a>
               </motion.div>
             </div>
           </motion.div>

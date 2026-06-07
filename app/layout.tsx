@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import BackgroundGrid from "../components/BackgroundGrid";
 import Navigation from "../components/Navigation";
+import CustomCursor from "../components/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://void-studio.vercel.app"),
   title: "Void.",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/favicon.ico",
+    icon: "/icon.svg?v=2",
+    shortcut: "/favicon.ico?v=2",
   },
   openGraph: {
     title: "Void.",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="text-zinc-900 antialiased min-h-screen overflow-x-hidden">
+        <CustomCursor />
         <div className="noise-overlay" />
         <BackgroundGrid />
         <Navigation />

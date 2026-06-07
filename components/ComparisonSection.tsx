@@ -91,7 +91,7 @@ export default function ComparisonSection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium mt-2 tracking-[-0.02em] text-black mb-6 word-spacing-tight">
               Select a Path
             </h2>
-            <p className="text-zinc-650 max-w-xl mx-auto text-xs sm:text-sm font-medium leading-relaxed tracking-normal word-spacing-tight">
+            <p className="text-zinc-600 max-w-xl mx-auto text-xs sm:text-sm font-medium leading-relaxed tracking-normal word-spacing-tight">
               Built for different needs. Crafted with the same meticulous attention to detail.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function ComparisonSection() {
           <motion.div
             variants={cardVariants}
             whileHover={isMobile ? {} : { y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-zinc-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)]"
+            className="group relative rounded-[2.5rem] p-7 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-zinc-400 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.06)]"
           >
 
             <div>
@@ -171,7 +171,7 @@ export default function ComparisonSection() {
           <motion.div
             variants={cardVariants}
             whileHover={isMobile ? {} : { y: -8 }}
-            className="group relative rounded-[2.5rem] p-10 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-[#8B6F47]/50 hover:shadow-[0_20px_40px_-15px_rgba(139,111,71,0.12)]"
+            className="group relative rounded-[2.5rem] p-7 md:p-12 border border-zinc-200 bg-white transition-all duration-500 flex flex-col justify-between hover:bg-[#faf8f5] hover:border-[#8B6F47]/50 hover:shadow-[0_20px_40px_-15px_rgba(139,111,71,0.12)]"
           >
             <div>
               {/* Header inside card */}

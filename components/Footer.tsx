@@ -8,9 +8,7 @@ interface FooterProps { }
 export default function Footer({ }: FooterProps) {
 
   const socialLinks = [
-    { label: "Instagram", href: "https://www.instagram.com/void.prolite/" },
-    { label: "Twitter", href: "#" },
-    { label: "LinkedIn", href: "#" }
+    { label: "Instagram", href: "https://www.instagram.com/void.prolite/" }
   ];
 
   const legalLinks = [

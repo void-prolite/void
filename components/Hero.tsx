@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import useIsMobile from "../hooks/useIsMobile";
+import Link from "next/link";
 
 interface HeroProps { }
 
@@ -67,10 +68,28 @@ export default function Hero({ }: HeroProps) {
           initial={{ opacity: 0, y: isMobile ? 0 : 20, filter: isMobile ? "none" : "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: isMobile ? "none" : "blur(0px)" }}
           transition={{ delay: isMobile ? 0.25 : 0.5, duration: isMobile ? 0.6 : 1.0, ease: [0.16, 1, 0.3, 1] }}
-          className="text-sm md:text-base text-zinc-650 max-w-2xl mx-auto mb-12 font-medium leading-relaxed tracking-normal word-spacing-tight px-4"
+          className="text-sm md:text-base text-zinc-600 max-w-2xl mx-auto mb-12 font-medium leading-relaxed tracking-normal word-spacing-tight px-4"
         >
           We design and build fast, clean, and reliable websites for creative brands and modern businesses.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: isMobile ? 0.4 : 0.7, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Link href="/start">
+            <button className="px-10 py-4 bg-black text-white font-bold text-base rounded-full hover:bg-zinc-800 transition-colors duration-300 shadow-md">
+              Start a Project
+            </button>
+          </Link>
+          <a href="#projects">
+            <button className="px-10 py-4 bg-transparent text-zinc-600 border border-zinc-300 font-semibold text-base rounded-full hover:border-zinc-500 transition-colors duration-300">
+              See Our Work ↓
+            </button>
+          </a>
+        </motion.div>
       </motion.div>
     </section>
   );

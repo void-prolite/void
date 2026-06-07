@@ -26,8 +26,7 @@ export default function Home() {
         href: "https://void-lite.vercel.app/",
         image: "/images/void-lite.webp",
         accentColor: "#ff4b3e",
-        hoverBorderColor: "rgba(255, 75, 62, 0.3)",
-        tags: ["Next.js", "Tailwind CSS", "Framer", "Static"]
+        hoverBorderColor: "rgba(255, 75, 62, 0.3)"
       },
       {
         title: "Void.Pro",
@@ -36,8 +35,7 @@ export default function Home() {
         href: "https://void-pro-portfolio.vercel.app/",
         image: "/images/void-pro.webp",
         accentColor: "#a855f7",
-        hoverBorderColor: "rgba(168, 85, 247, 0.3)",
-        tags: ["Next.js", "Tailwind CSS", "TypeScript", "API Integration", "Dynamic"]
+        hoverBorderColor: "rgba(168, 85, 247, 0.3)"
       }
     ];
 

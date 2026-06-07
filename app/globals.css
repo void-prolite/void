@@ -14,7 +14,13 @@
 
 * {
   box-sizing: border-box;
-  outline: none;
+}
+
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid #8B6F47;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 html {
@@ -137,5 +143,15 @@ h6 {
     backdrop-filter: none !important;
     -webkit-filter: none !important;
     -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Hide default cursor on desktop PC users to allow the custom star cursor to render cleanly */
+@media (pointer: fine) {
+  html, body {
+    cursor: none !important;
+  }
+  a, button, [role='button'], .cursor-pointer {
+    cursor: none !important;
   }
 }

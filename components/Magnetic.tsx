@@ -35,7 +35,7 @@ export default function Magnetic({ children }: { children: React.ReactElement })
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={isMobile ? { x: 0, y: 0 } : { x: position.x, y: position.y }}
-      transition={isMobile ? { duration: 0.1 } : { type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={isMobile ? { duration: 0.1 } : { type: "spring", stiffness: 120, damping: 25, mass: 0.1 }}
       className="inline-block"
     >
       {children}
