@@ -5,7 +5,7 @@ import Navigation from "../components/Navigation";
 import CustomCursor from "../components/CustomCursor";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://void-studio.vercel.app"),
+  metadataBase: new URL("https://void-prolite.online"),
   title: "Void.",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
