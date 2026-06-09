@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 import BackgroundGrid from "../components/BackgroundGrid";
 import Navigation from "../components/Navigation";
-import CustomCursor from "../components/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://void-prolite.online"),
   title: "Void.",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
-    icon: "/icon.svg?v=2",
-    shortcut: "/favicon.ico?v=2",
+    icon: "/icon.svg",
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Void.",
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Void.",
     images: [
       {
-        url: "/images/void-studio.webp",
+        url: "/icon.webp",
         width: 1024,
         height: 1024,
         alt: "Void. Digital Creative Studio Logo",
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Void. | Digital Creative Studio",
     description: "We design and build clean, high-performance websites and digital interfaces.",
-    images: ["/images/void-studio.webp"],
+    images: ["/icon.webp"],
   },
 };
 
@@ -40,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="text-zinc-900 antialiased min-h-screen overflow-x-hidden">
-        <CustomCursor />
         <div className="noise-overlay" />
         <BackgroundGrid />
         <Navigation />
