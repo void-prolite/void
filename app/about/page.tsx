@@ -98,8 +98,8 @@ export default function AboutPage() {
     },
     {
       name: "Project Strategy",
-      focus: ["SEO Optimization", "User Analytics", "Content Strategy", "Performance Audit"],
-      desc: "We optimize your website structure for search engines and set up tools to analyze user engagement."
+      focus: ["User Analytics", "Content Strategy", "Performance Audit"],
+      desc: "We analyze your website structure and set up tools to monitor performance and user engagement."
     }
   ];
 

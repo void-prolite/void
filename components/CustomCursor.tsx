@@ -89,6 +89,8 @@ export default function CustomCursor() {
 
     if (!hasFinePointer) return;
 
+    document.documentElement.classList.add("custom-cursor-active");
+
     let lastTime = Date.now();
     let lastX = globalCursorX;
     let lastY = globalCursorY;
@@ -252,6 +254,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
       window.removeEventListener("scroll", handleScroll);
+      document.documentElement.classList.remove("custom-cursor-active");
     };
   }, []);
 

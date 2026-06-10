@@ -43,7 +43,7 @@ export default function Home() {
     { num: "01", title: "Brand Identity", desc: "We design logos, visual assets, and style guidelines.", capabilities: ["Logo Systems", "Visual Identity", "Style Guidelines", "Creative Direction"] },
     { num: "02", title: "Web Design", desc: "We design clean, responsive page layouts.", capabilities: ["UI/UX Interface Design", "Responsive Layouts", "Interactive Prototypes", "Design Systems"] },
     { num: "03", title: "Development", desc: "We write clean, secure frontend and backend code.", capabilities: ["Next.js / React Development", "Tailwind CSS Styling", "API Integrations", "TypeScript Quality"] },
-    { num: "04", title: "User Experience", desc: "We optimize interfaces for simple and clear user flows.", capabilities: ["User Flow Optimization", "Usability Audits", "SEO Performance Setup", "Interactive Transitions"] }
+    { num: "04", title: "User Experience", desc: "We optimize interfaces for simple and clear user flows.", capabilities: ["User Flow Optimization", "Usability Audits", "Interactive Transitions"] }
   ];
 
   return (

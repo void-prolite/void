@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import BackgroundGrid from "../components/BackgroundGrid";
 import Navigation from "../components/Navigation";
+import CustomCursor from "../components/CustomCursor";
+import LoadingFallback from "./LoadingFallback";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://void-prolite.online"),
@@ -39,10 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="text-zinc-900 antialiased min-h-screen overflow-x-hidden">
+        <CustomCursor />
         <div className="noise-overlay" />
         <BackgroundGrid />
         <Navigation />
-        {children}
+        <Suspense fallback={<LoadingFallback />}>
+          {children}
+        </Suspense>
       </body>
     </html>
   );

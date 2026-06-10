@@ -18,8 +18,6 @@ export default function Navigation({ transparent = true }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
 
-  if (pathname === "/start") return null;
-
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -29,6 +27,8 @@ export default function Navigation({ transparent = true }: NavigationProps) {
       setIsScrolled(false);
     }
   });
+
+  if (pathname === "/start") return null;
 
   const navItems = [
     { label: "OUR PROJECTS", href: "/#projects" },

@@ -146,12 +146,12 @@ h6 {
   }
 }
 
-/* Hide default cursor on desktop PC users to allow the custom star cursor to render cleanly */
+/* Hide default cursor on desktop PC users only if the custom cursor is active */
 @media (pointer: fine) {
-  html, body {
+  html.custom-cursor-active, html.custom-cursor-active body {
     cursor: none !important;
   }
-  a, button, [role='button'], .cursor-pointer {
+  html.custom-cursor-active a, html.custom-cursor-active button, html.custom-cursor-active [role='button'], html.custom-cursor-active .cursor-pointer {
     cursor: none !important;
   }
 }
