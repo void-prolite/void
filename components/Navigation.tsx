@@ -162,6 +162,7 @@ export default function Navigation({ transparent = true }: NavigationProps) {
                 className="mt-8 pt-8 border-t border-zinc-200 flex justify-center gap-6 text-zinc-400 text-sm font-semibold tracking-wider"
               >
                 <a href="https://www.instagram.com/void.prolite/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">INSTAGRAM</a>
+                <a href="https://x.com/Voidprolite" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">TWITTER</a>
               </motion.div>
             </div>
           </motion.div>

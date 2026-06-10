@@ -236,7 +236,7 @@ export default function ContactPage() {
                     {["Instagram", "Twitter", "LinkedIn"].map((network) => {
                       const socialUrls: Record<string, string> = {
                         Instagram: "https://www.instagram.com/void.prolite/",
-                        Twitter: "#",
+                        Twitter: "https://x.com/Voidprolite",
                         LinkedIn: "#"
                       };
                       const href = socialUrls[network] || "#";
