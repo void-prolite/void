@@ -103,8 +103,11 @@ export default function CustomCursor() {
 
     const updatePhysics = () => {
       if (shouldSnap) {
-        // Spring physics for a bouncy snap to nearest 90 degrees
-        const targetRot = Math.round(currentRot / 90) * 90;
+        // Spring physics for a bouncy snap to nearest 90 degrees globally
+        const currentAngle = cursorAngle.get();
+        const globalRot = currentRot + currentAngle;
+        const targetGlobalRot = Math.round(globalRot / 90) * 90;
+        const targetRot = targetGlobalRot - currentAngle;
         const diff = targetRot - currentRot;
         
         // Smoother, floatier spring parameters
@@ -123,7 +126,10 @@ export default function CustomCursor() {
       
       // Lock it perfectly once it has settled to prevent micro-jitters
       if (shouldSnap && Math.abs(rotationVelocity.current) < 0.01) {
-        const targetRot = Math.round(currentRot / 90) * 90;
+        const currentAngle = cursorAngle.get();
+        const globalRot = currentRot + currentAngle;
+        const targetGlobalRot = Math.round(globalRot / 90) * 90;
+        const targetRot = targetGlobalRot - currentAngle;
         if (Math.abs(targetRot - currentRot) < 0.1) {
           currentRot = targetRot;
           rotationVelocity.current = 0;
