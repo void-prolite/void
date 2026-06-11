@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://void-prolite.online';
   const currentDate = new Date();
-  const legalDate = new Date('2026-05-29');
+  const legalDate = new Date('2026-06-11');
 
   return [
     {

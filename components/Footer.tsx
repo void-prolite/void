@@ -42,7 +42,7 @@ export default function Footer({ }: FooterProps) {
             We design and build clean, high-performance websites.
           </p>
           <p className="text-zinc-400 text-xs font-bold tracking-wider mt-3">
-            © 2026 Void Creative. All rights reserved.
+            © 2026 Void. All rights reserved.
           </p>
         </div>
 
