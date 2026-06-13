@@ -233,11 +233,10 @@ export default function ContactPage() {
                     OUR SOCIALS
                   </span>
                   <div className="flex gap-4">
-                    {["Instagram", "Twitter", "LinkedIn"].map((network) => {
+                    {["Instagram", "Twitter"].map((network) => {
                       const socialUrls: Record<string, string> = {
                         Instagram: "https://www.instagram.com/void.prolite/",
-                        Twitter: "https://x.com/Voidprolite",
-                        LinkedIn: "#"
+                        Twitter: "https://x.com/Voidprolite"
                       };
                       const href = socialUrls[network] || "#";
                       return (
