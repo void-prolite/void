@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Void.",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.ico",
     shortcut: "/favicon.ico",
   },
   openGraph: {
