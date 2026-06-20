@@ -96,7 +96,7 @@ export default function ContactPage() {
           project_type: projectType,
           budget_tier: budgetTier,
           subject: `New Project Request from ${formData.name}`,
-          from_name: "Void Studio Agency"
+          from_name: "Void.prolite Studio Agency"
         })
       });
 
@@ -172,7 +172,7 @@ export default function ContactPage() {
                   <div className="space-y-6">
                     {/* Direct Email Card */}
                     <motion.a
-                      href="mailto:void.prolite@gmail.com"
+                      href="mailto:Void.prolite@gmail.com"
                       whileHover={{ y: -3, borderColor: "#000000", backgroundColor: "#f4f4f5" }}
                       className="flex items-center gap-5 p-5 bg-white border border-zinc-200 rounded-2xl transition-all duration-300 cursor-pointer"
                     >
@@ -186,7 +186,7 @@ export default function ContactPage() {
                           EMAIL ADDRESS
                         </span>
                         <span className="text-black text-sm md:text-base font-bold transition-colors">
-                          void.prolite@gmail.com
+                          Void.prolite@gmail.com
                         </span>
                       </div>
                     </motion.a>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                   <div className="flex gap-4">
                     {["Instagram", "Twitter"].map((network) => {
                       const socialUrls: Record<string, string> = {
-                        Instagram: "https://www.instagram.com/void.prolite/",
+                        Instagram: "https://www.instagram.com/Void.prolite/",
                         Twitter: "https://x.com/Voidprolite"
                       };
                       const href = socialUrls[network] || "#";
@@ -283,7 +283,7 @@ export default function ContactPage() {
                             <span className="font-bold block">Transmission Failed</span>
                             <span className="text-zinc-650 text-xs leading-relaxed">
                               Could not send your message. Please check your connection and try again.
-                              You can also reach out directly to <a href="mailto:void.prolite@gmail.com" className="text-black underline hover:text-zinc-800 font-bold transition-colors">void.prolite@gmail.com</a>.
+                              You can also reach out directly to <a href="mailto:Void.prolite@gmail.com" className="text-black underline hover:text-zinc-800 font-bold transition-colors">Void.prolite@gmail.com</a>.
                             </span>
                           </div>
                         </motion.div>

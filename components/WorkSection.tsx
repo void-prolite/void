@@ -76,7 +76,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <img
         src={project.image || `https://picsum.photos/1200/800?random=${index + 22}`}
         alt={project.title}
-        className={`w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105 group-hover:opacity-90 ${project.title === "Void.Pro" ? "object-left" : ""
+        className={`w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105 group-hover:opacity-90 ${project.title === "Void.prolitePro" ? "object-left" : ""
           }`}
       />
 
@@ -94,7 +94,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <span className="transition-colors duration-300" style={{ color: isHovered ? accentColor : "#ffffff" }}>
             {project.title}
           </span>
-          {(project.title === "Void.Lite" || project.title === "Void.Pro") && (
+          {(project.title === "Void.proliteLite" || project.title === "Void.prolitePro") && (
             <svg
               className="absolute left-0 bottom-[-4px] w-full h-[7px] opacity-90 transition-colors duration-300"
               style={{ color: isHovered ? accentColor : "#ffffff" }}

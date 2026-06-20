@@ -8,22 +8,22 @@ import LoadingFallback from "./LoadingFallback";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://void-prolite.online"),
-  title: "Void.",
+  title: "Void.prolite",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Void.",
+    title: "Void.prolite",
     description: "We design and build clean, high-performance websites and digital interfaces.",
     url: "https://void-prolite.online",
-    siteName: "Void.",
+    siteName: "Void.prolite",
     images: [
       {
         url: "/icon.webp",
         width: 1024,
         height: 1024,
-        alt: "Void. Digital Creative Studio Logo",
+        alt: "Void.prolite Digital Creative Studio Logo",
       },
     ],
     locale: "en_US",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Void. | Digital Creative Studio",
+    title: "Void.prolite | Digital Creative Studio",
     description: "We design and build clean, high-performance websites and digital interfaces.",
     images: ["/icon.webp"],
   },

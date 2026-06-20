@@ -8,7 +8,7 @@ interface FooterProps { }
 export default function Footer({ }: FooterProps) {
 
   const socialLinks = [
-    { label: "Instagram", href: "https://www.instagram.com/void.prolite/" },
+    { label: "Instagram", href: "https://www.instagram.com/Void.prolite/" },
     { label: "Twitter", href: "https://x.com/Voidprolite" }
   ];
 
@@ -35,14 +35,14 @@ export default function Footer({ }: FooterProps) {
               whileHover={{ scale: 1.03 }}
               className="text-4xl font-semibold tracking-tight cursor-pointer text-black transition-colors font-serif"
             >
-              Void<span className="animate-dot-glow">.</span>
+              Void<span className="text-red-600 font-bold text-[1.2em]">.</span>prolite
             </motion.div>
           </Link>
           <p className="text-zinc-600 text-sm font-medium leading-relaxed">
             We design and build clean, high-performance websites.
           </p>
           <p className="text-zinc-400 text-xs font-bold tracking-wider mt-3">
-            © 2026 Void. All rights reserved.
+            © 2026 Void.prolite All rights reserved.
           </p>
         </div>
 

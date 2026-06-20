@@ -162,7 +162,7 @@ export default function AboutPage() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-base sm:text-lg md:text-xl text-zinc-650 max-w-2xl mx-auto font-medium leading-relaxed tracking-wide px-4"
           >
-            Void is a design and development studio. We build custom websites that are clean, fast, and easy to use.
+            Void.prolite is a design and development studio. We build custom websites that are clean, fast, and easy to use.
           </motion.p>
         </motion.div>
       </section>

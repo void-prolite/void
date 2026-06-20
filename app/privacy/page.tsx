@@ -38,7 +38,7 @@ export default function LegalPage() {
               <div >
                 <h2 className="text-xl font-bold text-black mb-4">1. Overview</h2>
                 <div className="space-y-4">
-                  <p className="text-zinc-600">Void ("Void," "we," "us," or "our"), a sole-proprietor creative studio operating at void-prolite.online, is committed to protecting the privacy of individuals who interact with this website. This policy explains what personal data we collect, how we use it, and your rights in relation to it. Void acts as the data controller for all personal data processed under this policy.</p>
+                  <p className="text-zinc-600">Void.prolite ("Void.prolite," "we," "us," or "our"), a sole-proprietor creative studio operating at void-prolite.online, is committed to protecting the privacy of individuals who interact with this website. This policy explains what personal data we collect, how we use it, and your rights in relation to it. Void.prolite acts as the data controller for all personal data processed under this policy.</p>
                 </div>
               </div>
 
@@ -87,14 +87,14 @@ export default function LegalPage() {
               <div className="border-t border-zinc-200 pt-8">
                 <h2 className="text-xl font-bold text-black mb-4">8. Your Rights</h2>
                 <div className="space-y-4">
-                  <p className="text-zinc-600">Subject to applicable law (including GDPR Articles 15–21 and India's DPDP Act 2023), you have the following rights regarding your personal data:</p><ul className="list-disc list-outside ml-5 text-zinc-600 space-y-2 mt-4"><li className="text-zinc-600">Right of access — to obtain a copy of the personal data we hold about you</li><li className="text-zinc-600">Right to rectification — to correct inaccurate or incomplete data</li><li className="text-zinc-600">Right to erasure — to request deletion of your data where no legal basis for retention exists</li><li className="text-zinc-600">Right to restrict processing — to limit how we use your data in certain circumstances</li><li className="text-zinc-600">Right to data portability — to receive your data in a structured, machine-readable format</li><li className="text-zinc-600">Right to object — to object to processing based on legitimate interest</li></ul><p className="text-zinc-600">To exercise any of these rights, contact us at void.prolite@gmail.com. We will respond within 30 days of receiving a valid request. We may ask you to verify your identity before processing the request.</p>
+                  <p className="text-zinc-600">Subject to applicable law (including GDPR Articles 15–21 and India's DPDP Act 2023), you have the following rights regarding your personal data:</p><ul className="list-disc list-outside ml-5 text-zinc-600 space-y-2 mt-4"><li className="text-zinc-600">Right of access — to obtain a copy of the personal data we hold about you</li><li className="text-zinc-600">Right to rectification — to correct inaccurate or incomplete data</li><li className="text-zinc-600">Right to erasure — to request deletion of your data where no legal basis for retention exists</li><li className="text-zinc-600">Right to restrict processing — to limit how we use your data in certain circumstances</li><li className="text-zinc-600">Right to data portability — to receive your data in a structured, machine-readable format</li><li className="text-zinc-600">Right to object — to object to processing based on legitimate interest</li></ul><p className="text-zinc-600">To exercise any of these rights, contact us at Void.prolite@gmail.com. We will respond within 30 days of receiving a valid request. We may ask you to verify your identity before processing the request.</p>
                 </div>
               </div>
 
               <div className="border-t border-zinc-200 pt-8">
                 <h2 className="text-xl font-bold text-black mb-4">9. Grievance Officer</h2>
                 <div className="space-y-4">
-                  <p className="text-zinc-600">In accordance with India's Digital Personal Data Protection Act 2023 and the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, our designated Grievance Officer can be reached at:</p><p className="text-zinc-600">Email: void.prolite@gmail.com</p><p className="text-zinc-600">Response time: within 30 days of receipt of grievance.</p>
+                  <p className="text-zinc-600">In accordance with India's Digital Personal Data Protection Act 2023 and the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, our designated Grievance Officer can be reached at:</p><p className="text-zinc-600">Email: Void.prolite@gmail.com</p><p className="text-zinc-600">Response time: within 30 days of receipt of grievance.</p>
                 </div>
               </div>
 
@@ -108,7 +108,7 @@ export default function LegalPage() {
               <div className="border-t border-zinc-200 pt-8">
                 <h2 className="text-xl font-bold text-black mb-4">11. Children's Data</h2>
                 <div className="space-y-4">
-                  <p className="text-zinc-600">This website is not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has submitted personal data to us, please contact us at void.prolite@gmail.com and we will delete it promptly. Where required under India's DPDP Act 2023, verifiable parental or guardian consent will be obtained before processing data of a minor.</p>
+                  <p className="text-zinc-600">This website is not directed at individuals under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has submitted personal data to us, please contact us at Void.prolite@gmail.com and we will delete it promptly. Where required under India's DPDP Act 2023, verifiable parental or guardian consent will be obtained before processing data of a minor.</p>
                 </div>
               </div>
 
