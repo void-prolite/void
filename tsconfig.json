@@ -20,7 +20,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "types": ["react", "react-dom", "node"]
   },
   "include": [
     "next-env.d.ts",

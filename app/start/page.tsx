@@ -31,7 +31,7 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
       <img
         src={staticImg}
         alt={alt}
-        className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none ${alt === "Void.prolitePro" ? "object-left" : ""
+        className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none ${alt === "Void.Pro" ? "object-left" : ""
           }`}
         style={{
           opacity: isHovered ? 0 : 1,
@@ -48,7 +48,7 @@ function HoverGifImage({ staticImg, gifImg, alt, isHovered }: HoverGifImageProps
         loop
         muted
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover ${alt === "Void.prolitePro" ? "object-left" : ""
+        className={`absolute inset-0 w-full h-full object-cover ${alt === "Void.Pro" ? "object-left" : ""
           }`}
         style={{
           opacity: isHovered ? 1 : 0,
@@ -67,7 +67,7 @@ export default function StartProjectPage() {
   const tiers = [
     {
       id: "lite" as const,
-      title: "Void.proliteLite",
+      title: "Void.Lite",
       tagline: "Static Showcase Website",
       desc: "A clean, static website. Designed for portfolios, landing pages, and marketing sites that need fast performance, structured grids, and clean responsive layouts.",
       accent: "#ffffff",
@@ -85,7 +85,7 @@ export default function StartProjectPage() {
     },
     {
       id: "pro" as const,
-      title: "Void.prolitePro",
+      title: "Void.Pro",
       tagline: "Custom Web Application",
       desc: "A custom web application with interactive interfaces. Designed for businesses requiring advanced state management, interactive user experiences, dynamic data integrations, and functional dashboards.",
       accent: "#ffffff",
@@ -188,7 +188,7 @@ export default function StartProjectPage() {
                       <span>
                         {tier.title}
                       </span>
-                      {(tier.title === "Void.proliteLite" || tier.title === "Void.prolitePro") && (
+                      {(tier.title === "Void.Lite" || tier.title === "Void.Pro") && (
                         <svg
                           className="absolute left-0 bottom-[-4px] w-full h-[7px] text-black opacity-90"
                           viewBox="0 0 100 10"

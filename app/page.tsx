@@ -20,7 +20,7 @@ export default function Home() {
     tags?: string[];
   }[] = [
       {
-        title: "Void.proliteLite",
+        title: "Void.Lite",
         client: "Static Showcase Website",
         size: "large",
         href: "https://void-lite.vercel.app/",
@@ -29,7 +29,7 @@ export default function Home() {
         hoverBorderColor: "rgba(255, 75, 62, 0.3)"
       },
       {
-        title: "Void.prolitePro",
+        title: "Void.Pro",
         client: "Custom Web Application",
         size: "large",
         href: "https://void-pro-portfolio.vercel.app/",
