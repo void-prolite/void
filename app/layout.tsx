@@ -11,7 +11,13 @@ export const metadata: Metadata = {
   title: "Void.prolite",
   description: "We design and build clean, high-performance websites and digital interfaces.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Void.prolite",
